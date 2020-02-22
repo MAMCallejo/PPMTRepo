@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PPMT.BubbleGraphUserControl"
+﻿    <UserControl x:Class="PPMT.BubbleGraphUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,17 +8,64 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              VerticalAlignment="Stretch"
-             HorizontalAlignment="Stretch">
+             HorizontalAlignment="Stretch"
+            
+             Background="Transparent">
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Click="UpdateAllOnClick">
-            Move All
-        </Button>
-        <lvc:CartesianChart Grid.Row="1" Series="{Binding SeriesCollection}"
-                            DisableAnimations="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="220"/>
+        </Grid.ColumnDefinitions>
+
+        <Border CornerRadius="10" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#2c7b7f" Offset="0.0"/>
+                    <GradientStop Color="#2f915c" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <TextBlock Panel.ZIndex="5" Text="Project Prioritization Management Tool"
+                   FontFamily="Gotham Book"
+                   FontSize="32"
+                   Foreground="#2c7b7f"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Padding="30"
+                   />
+
+        <Image Panel.ZIndex="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/Logo.png" Width="169" Height="80"/>
+
+        <Rectangle Panel.ZIndex="0" Grid.Row="0" Grid.ColumnSpan="2" Fill="White"/>
+
+        <lvc:CartesianChart Margin="20" Grid.Row="1" Grid.ColumnSpan="2" Series="{Binding SeriesCollection}">
+            <lvc:CartesianChart.AxisY>
+
+                <lvc:Axis ShowLabels="True" Title="Impact" Foreground="White" FontSize="17" MaxValue="2" MinValue="0">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="True" Step="1"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+
+            </lvc:CartesianChart.AxisY>
+
+
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis ShowLabels="True" Title="Complexity" Foreground="White" FontSize="17" MaxValue="2" MinValue="0">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="True" Step="1"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+
+            </lvc:CartesianChart.AxisX>
+
         </lvc:CartesianChart>
+        
     </Grid>
 </UserControl>

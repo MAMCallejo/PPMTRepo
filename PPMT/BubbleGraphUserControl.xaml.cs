@@ -33,33 +33,22 @@ namespace PPMT
                 {
                     Values = new ChartValues<ScatterPoint>
                     {
-                        new ScatterPoint(5, 5, 20),
-                        new ScatterPoint(3, 4, 80),
-                        new ScatterPoint(7, 2, 20),
-                        new ScatterPoint(2, 6, 60),
-                        new ScatterPoint(8, 2, 70)
+                        new ScatterPoint(1.7, 1.7, 100),
+                        new ScatterPoint(1.5, 0.3, 800),
+                        new ScatterPoint(1, 1, 100),
+                        new ScatterPoint(0.5, 0.7, 240),
+                        new ScatterPoint(0.7,1.6,280),
+                        new ScatterPoint(0.7,1.61,300)
                     },
                     MinPointShapeDiameter = 15,
                     MaxPointShapeDiameter = 45
                 },
-                new ScatterSeries
-                {
-                    Values = new ChartValues<ScatterPoint>
-                    {
-                        new ScatterPoint(7, 5, 1),
-                        new ScatterPoint(2, 2, 1),
-                        new ScatterPoint(1, 1, 1),
-                        new ScatterPoint(6, 3, 1),
-                        new ScatterPoint(8, 8, 1)
-                    },
-                    PointGeometry = DefaultGeometries.Triangle,
-                    MinPointShapeDiameter = 15,
-                    MaxPointShapeDiameter = 45
-                }
+
             };
 
             DataContext = this;
         }
+        
 
         public SeriesCollection SeriesCollection { get; set; }
 
@@ -77,5 +66,13 @@ namespace PPMT
             }
         }
 
+        private void btnTest(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void ImpactPage(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

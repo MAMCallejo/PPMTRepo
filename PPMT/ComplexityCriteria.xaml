@@ -1,0 +1,69 @@
+﻿<Page x:Class="PPMT.ComplexityCriteria"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PPMT"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ComplexityCriteria">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#2c7b7f" Offset="0.0"/>
+                    <GradientStop Color="#2f915c" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <TextBlock Grid.Row="0"  Foreground="White" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center">
+            Impact Criteria
+        </TextBlock>
+
+        
+        <DockPanel Margin="20" Grid.Row="2">
+            
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Name="ParentPanel">
+                <Label Name ="Resource" Content="Resource" DockPanel.Dock="Right" Width="60" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="100" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val1" />
+                <Label Name ="one" Content="{Binding ElementName=val1, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="40" Foreground="White"/>
+            </StackPanel>
+            
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="SonPanel">
+                <Label Name ="Data" Content="Data" DockPanel.Dock="Right" Width="40" Foreground="White" />
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="100" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val2" />
+                <Label Name ="two" Content="{Binding ElementName=val2, Path=Value, UpdateSourceTrigger=PropertyChanged}"  DockPanel.Dock="Right" Width="40" Foreground="White"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Name="DaughterPanel">
+                <Label Name ="Vendors" Content="Vendors" DockPanel.Dock="Right" Width="60" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="100" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val3" />
+                <Label Name = "three" Content="{Binding ElementName=val3, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="40" Foreground="White"/>
+            </StackPanel>
+            
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Name="OtherPanel">
+                <Label Name ="Sponsorship" Content="Sponsorship" DockPanel.Dock="Right" Width="80" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="100" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val4" />
+                <Label Name = "four" Content="{Binding ElementName=val4, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="40" Foreground="White"/>
+            </StackPanel>
+            
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Name="OtherOtherPanel">
+                <Label Name ="Implementation" Content="Implementation" DockPanel.Dock="Right" Width="100" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="100" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val5" />
+                <Label Name = "five" Content="{Binding ElementName=val5, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="40" Foreground="White"/>
+            </StackPanel>
+            
+            
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Width="75" Height="30" Content="Finish" Click="nextButtonClicked"/>
+        </DockPanel>
+
+
+    </Grid>
+</Page>

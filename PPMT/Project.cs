@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PPMT
+{
+    class Project
+    {
+        public string pName { get; set; }
+        public string pSponsor { get; set; }
+        public string rDate { get; set; }
+        public string pDeadline { get; set; }
+        public int pSavings { get; set; }
+        public double value { get; set; }
+        public double strategic { get; set; }
+        public double hrpriority { get; set; }
+        public double risk { get; set; }
+        public double resource { get; set; }
+        public double data { get; set; }
+        public double vendors { get; set; }
+        public double sponsorship { get; set; }
+        public double implementation { get; set; }
+    }
+}

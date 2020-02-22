@@ -10,33 +10,35 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PPMT
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewProj : Window
     {
-        public MainWindow()
+        public NewProj()
         {
             InitializeComponent();
-
+            Main.Content = new Start();
         }
 
-        private void newProject(object sender, RoutedEventArgs e)
+        private void BtnClickStart(object sender, RoutedEventArgs e)
         {
-            /*
-            //How to open in a certain area
-            Main.Content = new ImpactCriteria();
-            */
-
-            NewProj subWindow = new NewProj();
-            subWindow.Owner = this;
-            subWindow.Show();
-
+            Main.Content = new Start();
         }
+
+        private void BtnClickImpact(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ImpactCriteria();
+        }
+
+        private void BtnClickComplexity(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ComplexityCriteria();
+        }
+
     }
 }
