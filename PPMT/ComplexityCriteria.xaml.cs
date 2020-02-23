@@ -73,8 +73,10 @@ namespace PPMT
                 //serialize object directly into file stream
                 serializer.Serialize(file, newProj);
             }
+
+            PPMT.NewProj.projectWindow.Close();
+
         }
     }
-
 }
 

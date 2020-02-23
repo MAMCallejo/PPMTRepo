@@ -23,22 +23,12 @@ namespace PPMT
         {
             InitializeComponent();
             Main.Content = new Start();
+
+            projectWindow = this;
         }
 
-        private void BtnClickStart(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Start();
-        }
+        public static NewProj projectWindow;
 
-        private void BtnClickImpact(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new ImpactCriteria();
-        }
-
-        private void BtnClickComplexity(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new ComplexityCriteria();
-        }
 
     }
 }
