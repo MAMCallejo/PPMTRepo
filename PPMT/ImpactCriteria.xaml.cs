@@ -26,24 +26,31 @@ namespace PPMT
         }
 
         double value;
-        double strategic;
+        double  transformativeG;
         double hrpriority;
         double risk;
+
+        ComplexityCriteria pg = new ComplexityCriteria();
 
         private void nextButtonClick(object sender, RoutedEventArgs e)
         {
             value = (double)one.Content;
-            strategic = (double)two.Content;
+            transformativeG = (double)two.Content;
             hrpriority = (double)three.Content;
             risk = (double)four.Content;
 
             App.Current.Properties["value"] = value;
-            App.Current.Properties["strategic"] = strategic;
+            App.Current.Properties["strategic"] = transformativeG;
             App.Current.Properties["hrpriority"] = hrpriority;
             App.Current.Properties["risk"] = risk;
             
-            ComplexityCriteria pg = new ComplexityCriteria();
+            
             this.NavigationService.Navigate(pg);
+        }
+
+        private void backBtn(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
         }
     }
 }

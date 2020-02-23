@@ -64,6 +64,8 @@ namespace PPMT
                 sponsorship = ((double)App.Current.Properties["sponsorship"]),
                 implementation = ((double)App.Current.Properties["implementation"])
             };
+
+
             string docPath = Directory.GetCurrentDirectory();
 
             //open file stream
@@ -78,6 +80,11 @@ namespace PPMT
 
             PPMT.NewProj.projectWindow.Close();
 
+        }
+
+        private void backBtn(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
         }
     }
 }

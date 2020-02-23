@@ -25,7 +25,7 @@
         </Border>
 
         <TextBlock Grid.Row="0"  Foreground="White" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center">
-            Impact Criteria
+            Complexity Criteria
         </TextBlock>
 
         
@@ -62,6 +62,7 @@
             
             
             <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Width="75" Height="30" Content="Finish" Click="nextButtonClicked"/>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="90" Height="30" Content="Back" Click="backBtn" Grid.Row="2"/>
         </DockPanel>
 
 

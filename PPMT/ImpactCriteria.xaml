@@ -11,12 +11,24 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
         
-        
-        <Border Grid.RowSpan="2">
+       
+        <Border Grid.RowSpan="6" Grid.ColumnSpan="5">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#2c7b7f" Offset="0.0"/>
@@ -25,38 +37,38 @@
             </Border.Background>
         </Border>
 
-        <TextBlock Grid.Row="0"  Foreground="White" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center">
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="5" Foreground="White" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center">
             Impact Criteria
         </TextBlock>
 
 
-        <DockPanel Margin="20" Grid.Row="2">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Name="ParentPanel" >
-                <Label Name ="Value" Content="Value" DockPanel.Dock="Right" Width="40" Foreground="White"/>
-                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val1" />
-                <Label Name ="one" Content="{Binding ElementName=val1, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="40" Foreground="White"/>
-            </StackPanel>
-            
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="SonPanel">
-                <Label Name ="Strategic" Content="Transformative Growth" DockPanel.Dock="Right" Width="70" Foreground="White"/>
-                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val2" />
-                <Label Name ="two" Content="{Binding ElementName=val2, Path=Value, UpdateSourceTrigger=PropertyChanged}"  DockPanel.Dock="Right" Width="40" Foreground="White"/>
-            </StackPanel>
-            
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Name="DaughterPanel">
-                <Label Name ="HRPriority" Content="HR Priority" DockPanel.Dock="Right" Width="80" Foreground="White"/>
-                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val3" />
-                <Label Name = "three" Content="{Binding ElementName=val3, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="40" Foreground="White"/>
-            </StackPanel>
-            
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Name="OtherPanel">
-                <Label Name ="Risk" Content="Risk" DockPanel.Dock="Right" Width="40" Foreground="White" />
-                <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="0.2" IsSnapToTickEnabled="True" Name="val4" />
-                <Label Name = "four" Content="{Binding ElementName=val4, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="40" Foreground="White"/>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="ParentPanel" Grid.Column="1" Grid.Row="1">
+                <Label Name ="Value" Content="Value" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val1" />
+                <Label Name ="one" Content="{Binding ElementName=val1, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
             </StackPanel>
 
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="90" Height="30" Content="Continue" Click="nextButtonClick"/>
-        </DockPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="SonPanel" Grid.Column="1" Grid.Row="2">
+                <Label Name ="Strategic" Content="Transformative Growth" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val2" />
+                <Label Name ="two" Content="{Binding ElementName=val2, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
+            </StackPanel>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="DaughterPanel" Grid.Column="1" Grid.Row="3">
+                <Label Name ="HRPriority" Content="HR Priority" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val3" />
+                <Label Name = "three" Content="{Binding ElementName=val3, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
+            </StackPanel>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="OtherPanel" Grid.Column="1" Grid.Row="4">
+                <Label Name ="Risk" Content="Risk" Foreground="White" />
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val4" />
+                <Label Name = "four" Content="{Binding ElementName=val4, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
+            </StackPanel>
+
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="15" Click="nextButtonClick" Grid.Row="5" Grid.Column="4"/>
+
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Back" Click="backBtn" Grid.Row="5" Grid.Column="3"/>
 
     </Grid>
 </Page>

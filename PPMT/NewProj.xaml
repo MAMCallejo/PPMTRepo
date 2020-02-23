@@ -66,6 +66,6 @@
                    Background="White">Complexity</TextBlock>
         
        
-        <Frame x:Name="Main" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+        <Frame x:Name="Main" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
