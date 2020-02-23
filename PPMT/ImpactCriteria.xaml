@@ -49,7 +49,7 @@
             </StackPanel>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="SonPanel" Grid.Column="1" Grid.Row="2">
-                <Label Name ="Strategic" Content="Transformative Growth" Foreground="White"/>
+                <Label Name ="transformativeG" Content="Transformative Growth" Foreground="White"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val2" />
                 <Label Name ="two" Content="{Binding ElementName=val2, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
             </StackPanel>

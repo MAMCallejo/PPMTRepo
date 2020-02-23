@@ -50,19 +50,11 @@ namespace PPMT
                 {
                     Title = "MainSeries",
 
-                    Values = new ChartValues<ScatterPoint>
-                    {
-                        new ScatterPoint(1.7, 1.7, 100),
-                        new ScatterPoint(1.5, 0.3, 800),
-                        new ScatterPoint(1, 1, 100),
-                        new ScatterPoint(0.5, 0.7, 240),
-                        new ScatterPoint(0.7,1.6,280),
-                        new ScatterPoint(0.7,1.61,300)
-                    },
+                    Values = new ChartValues<ScatterPoint>{},
 
-                    MinPointShapeDiameter = 15,
+                    MinPointShapeDiameter = 45,
 
-                    MaxPointShapeDiameter = 45
+                    MaxPointShapeDiameter = 85
 
                 },
 
@@ -74,19 +66,7 @@ namespace PPMT
 
         public SeriesCollection SeriesCollection { get; set; }
 
-        private void UpdateAllOnClick(object sender, RoutedEventArgs e)
-        {
-            var r = new Random();
-            foreach (var series in SeriesCollection)
-            {
-                foreach (var bubble in series.Values.Cast<ScatterPoint>())
-                {
-                    bubble.X = r.NextDouble() * 10;
-                    bubble.Y = r.NextDouble() * 10;
-                    bubble.Weight = r.NextDouble() * 10;
-                }
-            }
-        }
+
 
         // Calculate Complexity:
 
@@ -119,7 +99,13 @@ namespace PPMT
 
                     var YCoord = calculateYCoord(newProject.value, newProject.transformativeG, newProject.hrpriority, newProject.risk);
 
-                    series.Values.Add(new ScatterPoint(XCoord, YCoord, newProject.value));
+                    var newBubble = new ScatterPoint(XCoord, YCoord, newProject.value);
+
+                    Console.WriteLine(series.Values.Count);
+
+                    series.Values.Add(newBubble);
+
+                    Console.WriteLine(series.Values.Count);
 
                 }
 
