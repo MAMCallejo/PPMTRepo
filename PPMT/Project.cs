@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PPMT
 {
-    class Project
+    public class Project
     {
         public string pName { get; set; }
         public string pSponsor { get; set; }
@@ -14,7 +14,7 @@ namespace PPMT
         public string pDeadline { get; set; }
         public int pSavings { get; set; }
         public double value { get; set; }
-        public double strategic { get; set; }
+        public double transformativeG { get; set; }
         public double hrpriority { get; set; }
         public double risk { get; set; }
         public double resource { get; set; }
