@@ -66,13 +66,6 @@ namespace PPMT
             }
         }
 
-        private void btnTest(object sender, RoutedEventArgs e)
-        {
-        }
 
-        private void ImpactPage(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -32,6 +32,8 @@ namespace PPMT
         string sav;
         int parsedSav;
 
+        ImpactCriteria pg = new ImpactCriteria();
+
         private void okButtonClicked(object sender, RoutedEventArgs e)
         {
             n = name.Text;
@@ -45,10 +47,9 @@ namespace PPMT
             App.Current.Properties["requestDate"] = d;
             App.Current.Properties["deadlineDate"] = dead;
             App.Current.Properties["savings"] = parsedSav;
-           
+
             if (n.Length >= 5 && s.Length >= 5)
             {
-                ImpactCriteria pg = new ImpactCriteria();
                 this.NavigationService.Navigate(pg);
             }
             else if (s.Length < 5 && n.Length < 5)
