@@ -76,6 +76,8 @@ namespace PPMT
                 serializer.Serialize(file, newProj);
             }
 
+            PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(newProj);
+
             PPMT.NewProj.projectWindow.Close();
 
         }

@@ -5,18 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PPMT"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="850"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="ImpactCriteria">
 
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -26,8 +26,8 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-
-
+        
+       
         <Border Grid.RowSpan="6" Grid.ColumnSpan="5">
             <Border.Background>
                 <LinearGradientBrush>
@@ -37,56 +37,38 @@
             </Border.Background>
         </Border>
 
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="5" Foreground="White" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center" FontFamily="Gotham Book">
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="5" Foreground="White" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center">
             Impact Criteria
         </TextBlock>
 
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="ParentPanel" Grid.Column="1" Grid.Row="1">
-            <Label Name ="Value" Content="Value" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
-            <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15,0,15,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val1" />
-            <Label Name ="one" Content="{Binding ElementName=val1, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
-        </StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="ParentPanel" Grid.Column="1" Grid.Row="1">
+                <Label Name ="Value" Content="Value" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val1" />
+                <Label Name ="one" Content="{Binding ElementName=val1, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
+            </StackPanel>
 
-        <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">Project Delivers Financial Value* <LineBreak/> 
-        *Financial Value is validated as increased revenue, cost avoidance or productivity enhancement</TextBlock>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="SonPanel" Grid.Column="1" Grid.Row="2">
+                <Label Name ="transformativeG" Content="Transformative Growth" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val2" />
+                <Label Name ="two" Content="{Binding ElementName=val2, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
+            </StackPanel>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="SonPanel" Grid.Column="1" Grid.Row="2">
-            <Label Name ="transformativeG1" Content="Transformative Growth" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
-            <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val2" />
-            <Label Name ="two" Content="{Binding ElementName=val2, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
-        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="DaughterPanel" Grid.Column="1" Grid.Row="3">
+                <Label Name ="HRPriority" Content="HR Priority" Foreground="White"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val3" />
+                <Label Name = "three" Content="{Binding ElementName=val3, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
+            </StackPanel>
 
-        <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
-            Project is aligned to the strategic priorities of the Transformative Growth Plan*, and the 2020 Operating Priorities <LineBreak/> 
-            *Expand customer access, Improved customer value, Increased investment in growth and technology 
-        </TextBlock>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name="OtherPanel" Grid.Column="1" Grid.Row="4">
+                <Label Name ="Risk" Content="Risk" Foreground="White" />
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val4" />
+                <Label Name = "four" Content="{Binding ElementName=val4, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White"/>
+            </StackPanel>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="DaughterPanel" Grid.Column="1" Grid.Row="3">
-            <Label Name ="HRPriority" Content="HR Priority" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
-            <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val3" />
-            <Label Name = "three" Content="{Binding ElementName=val3, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
-        </StackPanel>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="15" Click="nextButtonClick" Grid.Row="5" Grid.Column="4"/>
 
-        <TextBlock Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
-            Project is aligned to HR Priorities* <LineBreak/> 
-            *Lead people plans for Transformative Growth, Expand colletive impacct of Employability and Good Jobs, Orchestrate talent strategies across our global footprint, Contemporize employy total value offerings
-        </TextBlock>
-
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="OtherPanel" Grid.Column="1" Grid.Row="4">
-            <Label Name ="Risk" Content="Risk" Foreground="White" HorizontalAlignment="Center"/>
-            <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val4" />
-            <Label Name = "four" Content="{Binding ElementName=val4, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
-        </StackPanel>
-
-        <TextBlock Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
-            Project heightens Risk* to the enterprise <LineBreak/> 
-            *Brand reputation, privacy, ethics &amp; market perception
-        </TextBlock>
-
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="15" Click="nextButtonClick" Grid.Row="5" Grid.Column="4"/>
-
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Back" FontSize="15" Click="backBtn" Grid.Row="5" Grid.Column="3"/>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Back" Click="backBtn" Grid.Row="5" Grid.Column="3"/>
 
     </Grid>
 </Page>

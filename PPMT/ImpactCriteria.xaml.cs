@@ -26,7 +26,7 @@ namespace PPMT
         }
 
         double value;
-        double transformativeG;
+        double transformativeGrowth;
         double hrpriority;
         double risk;
 
@@ -35,12 +35,12 @@ namespace PPMT
         private void nextButtonClick(object sender, RoutedEventArgs e)
         {
             value = (double)one.Content;
-            transformativeG = (double)two.Content;
+            transformativeGrowth = (double)two.Content;
             hrpriority = (double)three.Content;
             risk = (double)four.Content;
 
             App.Current.Properties["value"] = value;
-            App.Current.Properties["transformativeG"] = transformativeG;
+            App.Current.Properties["transformativeG"] = transformativeGrowth;
             App.Current.Properties["hrpriority"] = hrpriority;
             App.Current.Properties["risk"] = risk;
             

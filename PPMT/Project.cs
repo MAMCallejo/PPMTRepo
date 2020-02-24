@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PPMT
 {
-    class Project
+    public class Project
     {
         public string pName { get; set; }
         public string pSponsor { get; set; }
