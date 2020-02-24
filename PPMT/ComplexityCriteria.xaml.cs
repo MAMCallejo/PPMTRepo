@@ -55,7 +55,7 @@ namespace PPMT
                 pDeadline = ((string)App.Current.Properties["deadlineDate"]),
                 pSavings = ((int)App.Current.Properties["savings"]),
                 value = ((double)App.Current.Properties["value"]),
-                strategic = ((double)App.Current.Properties["strategic"]),
+                transformativeG = ((double)App.Current.Properties["transformativeG"]),
                 hrpriority = ((double)App.Current.Properties["hrpriority"]),
                 risk = ((double)App.Current.Properties["risk"]),
                 resource = ((double)App.Current.Properties["resource"]),

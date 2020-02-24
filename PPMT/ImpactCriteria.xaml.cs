@@ -26,7 +26,7 @@ namespace PPMT
         }
 
         double value;
-        double  transformativeG;
+        double transformativeG;
         double hrpriority;
         double risk;
 
@@ -40,7 +40,7 @@ namespace PPMT
             risk = (double)four.Content;
 
             App.Current.Properties["value"] = value;
-            App.Current.Properties["strategic"] = transformativeG;
+            App.Current.Properties["transformativeG"] = transformativeG;
             App.Current.Properties["hrpriority"] = hrpriority;
             App.Current.Properties["risk"] = risk;
             

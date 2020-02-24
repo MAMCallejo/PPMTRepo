@@ -5,26 +5,25 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PPMT"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="850"
       Title="Page1">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="8"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
         <Border Grid.RowSpan="8" Grid.ColumnSpan="5">
@@ -40,27 +39,37 @@
             Start Creating Your Project
         </TextBlock>
 
-        <Label Content="Project Name" Grid.Row="2" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
-        <TextBox Name="name" Grid.Row="2" Grid.Column="3" MaxLength="100"  Height="25"/>
+        <Label Content="Project Name" Grid.Row="1" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
+        <TextBox Name="name" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" MaxLength="100"  Height="25"/>
+ 
+        <Label Content="Project Sponsor" Grid.Row="2" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
+        <TextBox Name="sponsor" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" MaxLength="100" Height="25" VerticalAlignment="Center"/>
 
-        <Label Content="Project Sponsor" Grid.Row="3" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
-        <TextBox Name="sponsor" Grid.Row="3" Grid.Column="3" MaxLength="100" Height="25" VerticalAlignment="Center"/>
+        <Label Content="Request Date" Grid.Row="3" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
+        <DatePicker Name="date" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="25" />
 
-        <Label Content="Request Date" Grid.Row="4" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
-        <DatePicker Name="date" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" Height="25" />
+        <Label Content="Completion Deadline" Grid.Row="4" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
+        <DatePicker Name="deadline" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="25"/>
 
-        <Label Content="Completion Deadline" Grid.Row="5" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
-        <DatePicker Name="deadline" Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" Height="25"/>
-
-        <Label Content="Revenue Impact or Estimated Savings (USD)" Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
-        <TextBox Name="savings" Grid.Row="6" Grid.Column="3" PreviewTextInput="MaskNumericInput"
+        <Label Content="Revenue Impact or Estimated Savings (USD)" Grid.Row="5" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
+        <TextBox Name="savings" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" PreviewTextInput="MaskNumericInput"
                    DataObject.Pasting="MaskNumericPaste" Height="25" VerticalAlignment="Center" />
-        
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom" Grid.Row="7" Grid.Column="3">
-            <Button Name="ok" Content="Continue" Width="75" Height="24" Margin="3" Click="okButtonClicked" />
-            <Button Name="cancel" Content="Cancel" Width="75" Height="24" Margin="3" Click="cancelButtonClicked" />
-        </StackPanel>
+
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="14" Click="okButtonClicked" Grid.Row="6" Grid.Column="4" Margin="2">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Cancel" FontSize="14" Click="cancelButtonClicked" Grid.Row="6" Grid.Column="3" Margin="2">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Page>
