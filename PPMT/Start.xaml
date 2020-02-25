@@ -55,20 +55,21 @@
         <TextBox Name="savings" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" PreviewTextInput="MaskNumericInput"
                    DataObject.Pasting="MaskNumericPaste" Height="25" VerticalAlignment="Center" />
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="14" Click="okButtonClicked" Grid.Row="6" Grid.Column="4" Margin="2">
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="14" Click="okButtonClicked" Grid.Row="6" Grid.Column="4" Margin="1">
+            <!--
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
-            </Button.Resources>
+            </Button.Resources> -->
         </Button>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Cancel" FontSize="14" Click="cancelButtonClicked" Grid.Row="6" Grid.Column="3" Margin="2">
-            <Button.Resources>
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Cancel" FontSize="14" Click="cancelButtonClicked" Grid.Row="6" Grid.Column="3" Margin="1">
+            <!--<Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
-            </Button.Resources>
+            </Button.Resources> -->
         </Button>
 
     </Grid>
