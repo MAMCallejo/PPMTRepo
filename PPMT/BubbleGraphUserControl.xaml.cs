@@ -61,6 +61,8 @@ namespace PPMT
             };
 
             DataContext = this;
+
+            readFile();
         }
         
 
@@ -101,16 +103,30 @@ namespace PPMT
 
                     var newBubble = new ScatterPoint(XCoord, YCoord, newProject.value);
 
-                    Console.WriteLine(series.Values.Count);
-
                     series.Values.Add(newBubble);
 
-                    Console.WriteLine(series.Values.Count);
+                }
+            }
+        }
 
+
+        public void readFile()
+        {
+            using(StreamReader r = new StreamReader("projects.json"))
+            {
+                string json = r.ReadToEnd();
+
+                List<Project> list = JsonConvert.DeserializeObject<List<Project>>(json);
+
+                if (list != null)
+                {
+                    foreach (var project in list)
+                    {
+                        AddNewProject(project);
+                    }
                 }
 
             }
-
         }
 
     }

@@ -47,7 +47,7 @@
         <lvc:CartesianChart Margin="20" Grid.Row="1" Grid.ColumnSpan="2" Series="{Binding SeriesCollection}">
             <lvc:CartesianChart.AxisY>
 
-                <lvc:Axis ShowLabels="True" Title="Impact" Foreground="White" FontSize="17" MaxValue="4" MinValue="0">
+                <lvc:Axis ShowLabels="True" Title="Impact" Foreground="White" FontSize="17" MaxValue="5" MinValue="1">
                     <lvc:Axis.Separator>
                         <lvc:Separator IsEnabled="True" Step="2"></lvc:Separator>
                     </lvc:Axis.Separator>
@@ -57,7 +57,7 @@
 
 
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis ShowLabels="True" Title="Complexity" Foreground="White" FontSize="17" MaxValue="4" MinValue="0">
+                <lvc:Axis ShowLabels="True" Title="Complexity" Foreground="White" FontSize="17" MaxValue="5" MinValue="1">
                     <lvc:Axis.Separator>
                         <lvc:Separator IsEnabled="True" Step="2"></lvc:Separator>
                     </lvc:Axis.Separator>

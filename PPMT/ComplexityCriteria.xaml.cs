@@ -65,16 +65,32 @@ namespace PPMT
                 implementation = ((double)App.Current.Properties["implementation"])
             };
 
+            List<Project> list;
 
             string docPath = Directory.GetCurrentDirectory();
 
-            //open file stream
-            using (StreamWriter file = new StreamWriter(System.IO.Path.Combine(docPath, "projects.json"), true))
+            using (StreamReader r = new StreamReader("projects.json"))
             {
-                JsonSerializer serializer = new JsonSerializer();
-                //serialize object directly into file stream
-                serializer.Serialize(file, newProj);
+                string json = r.ReadToEnd();
+
+                 list = JsonConvert.DeserializeObject<List<Project>>(json);
+
+                if (list == null)
+                {
+                    List<Project> newList = new List<Project>();
+                    newList.Add(newProj);
+                    list = newList;
+                }
+                else
+                {
+                    list.Add(newProj);
+                }
+
             }
+
+
+                string convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
+                File.WriteAllText((System.IO.Path.Combine(docPath,"projects.json")), convertedJson);
 
             PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(newProj);
 
