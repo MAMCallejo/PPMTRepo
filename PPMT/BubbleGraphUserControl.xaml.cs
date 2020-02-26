@@ -36,6 +36,10 @@ namespace PPMT
         private Double hrPriorityWeight = 0.3;
         private Double riskWeight = 0.1;
 
+        private Dictionary<Tuple<double, double>, string> BubbleLabels;
+
+        private Dictionary<Tuple<double, double>, int> BubbleLabelInstances;
+
         public static BubbleGraphUserControl BubbleGraph;
 
         public BubbleGraphUserControl()
@@ -43,6 +47,10 @@ namespace PPMT
             InitializeComponent();
 
             BubbleGraph = this;
+
+            BubbleLabels = new Dictionary<Tuple<double, double>, string>();
+
+            BubbleLabelInstances = new Dictionary<Tuple<double, double>, int>();
 
             SeriesCollection = new SeriesCollection
             {
@@ -54,7 +62,11 @@ namespace PPMT
 
                     MinPointShapeDiameter = 45,
 
-                    MaxPointShapeDiameter = 85
+                    MaxPointShapeDiameter = 85,
+
+                    DataLabels = true,
+
+                    LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)]
 
                 },
 
@@ -102,6 +114,25 @@ namespace PPMT
                     var YCoord = calculateYCoord(newProject.value, newProject.transformativeG, newProject.hrpriority, newProject.risk);
 
                     var newBubble = new ScatterPoint(XCoord, YCoord, newProject.value);
+
+                    var newTuple = new Tuple<double, double>(XCoord, YCoord);
+
+                    if (BubbleLabels.ContainsKey(newTuple))
+                    {
+
+                        BubbleLabelInstances[newTuple] = BubbleLabelInstances[newTuple] + 1;
+
+                        BubbleLabels[newTuple] = BubbleLabelInstances[newTuple] + " projects";
+
+                    }
+                    else
+                    {
+
+                        BubbleLabels.Add(newTuple, newProject.pName);
+
+                        BubbleLabelInstances.Add(newTuple, 1);
+
+                    }
 
                     series.Values.Add(newBubble);
 

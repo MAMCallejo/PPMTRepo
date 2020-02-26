@@ -87,10 +87,10 @@ namespace PPMT
                 }
 
             }
+            
+            string convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
 
-
-                string convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
-                File.WriteAllText((System.IO.Path.Combine(docPath,"projects.json")), convertedJson);
+            File.WriteAllText((System.IO.Path.Combine(docPath,"projects.json")), convertedJson);
 
             PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(newProj);
 
