@@ -9,27 +9,46 @@
         WindowState="Maximized"
         ResizeMode="CanResizeWithGrip"
         Background="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         >
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="90"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="9*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="70"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <local:BubbleGraphUserControl Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <local:BubbleGraphUserControl Grid.RowSpan="3" Grid.ColumnSpan="3" x:Name="graphSize" Panel.ZIndex="2"/>
 
-        <Button Grid.Column="2" Grid.Row="2" FontFamily="Gotham Book"
-                   FontSize="18.5"
-                   Foreground="#2c7b7f"
-                   HorizontalAlignment="Center"
-                    Background="White" Click="newProject">
-            <TextBlock>New <LineBreak/> Project</TextBlock>
+        <Rectangle Grid.ColumnSpan="3" Fill="White" Panel.ZIndex="1"></Rectangle>
+
+        <Button Grid.Column="2" Grid.Row="0" Height="90" HorizontalAlignment="Stretch"
+                Foreground="Black" Click="slideOut" Background="White" Panel.ZIndex="2"
+                Name="BtnIcon" >
+            <materialDesign:PackIcon Kind="DotsVertical">
+                <materialDesign:PackIcon.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </materialDesign:PackIcon.LayoutTransform>
+            </materialDesign:PackIcon>
         </Button>
+
+        <ScrollViewer Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Background="White" x:Name="scrollOut" Visibility="Collapsed">
+           
+            <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" FontFamily="Gotham Book" Panel.ZIndex="2"
+                   Foreground="#2c7b7f" FontSize="20"
+                   HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                   Background="White" Click="newProject" Content="New Project">
+            </Button>
+        </ScrollViewer>
         
+
     </Grid>
     
 </Window>

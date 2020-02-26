@@ -36,6 +36,27 @@ namespace PPMT
             NewProj subWindow = new NewProj();
             subWindow.Owner = this;
             subWindow.Show();
+        }
+
+        private void slideOut(object sender, RoutedEventArgs e)
+        {
+            if(scrollOut.IsVisible == true)
+            {
+                scrollOut.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                scrollOut.Visibility = Visibility.Visible;
+            }
+
+            if(scrollOut.IsVisible == true)
+            {
+                Grid.SetColumnSpan(graphSize, 1);
+            }
+            else
+            {
+                Grid.SetColumnSpan(graphSize, 3);
+            }
 
         }
     }
