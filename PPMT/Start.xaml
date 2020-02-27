@@ -22,8 +22,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
         <Border Grid.RowSpan="8" Grid.ColumnSpan="5">
@@ -40,10 +40,10 @@
         </TextBlock>
 
         <Label Content="Project Name" Grid.Row="1" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
-        <TextBox Name="name" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" MaxLength="100"  Height="25"/>
+        <TextBox Name="name" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" MaxLength="100"  Height="25" FontSize="15" Foreground="White"/>
  
         <Label Content="Project Sponsor" Grid.Row="2" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
-        <TextBox Name="sponsor" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" MaxLength="100" Height="25" VerticalAlignment="Center"/>
+        <TextBox Name="sponsor" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" MaxLength="100" Height="25" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
 
         <Label Content="Request Date" Grid.Row="3" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
         <DatePicker Name="date" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="25" />
@@ -53,9 +53,9 @@
 
         <Label Content="Revenue Impact or Estimated Savings (USD)" Grid.Row="5" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
         <TextBox Name="savings" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" PreviewTextInput="MaskNumericInput"
-                   DataObject.Pasting="MaskNumericPaste" Height="25" VerticalAlignment="Center" />
+                   DataObject.Pasting="MaskNumericPaste" Height="25" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="14" Click="okButtonClicked" Grid.Row="6" Grid.Column="4">
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="14" Click="okButtonClicked" Grid.Row="6" Grid.Column="4" Foreground="#2c7b7f">
             <!--
             <Button.Resources>
                 <Style TargetType="Border">
@@ -64,7 +64,7 @@
             </Button.Resources> -->
         </Button>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Cancel" FontSize="14" Click="cancelButtonClicked" Grid.Row="6" Grid.Column="3">
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Cancel" FontSize="14" Click="cancelButtonClicked" Grid.Row="6" Grid.Column="3" Foreground="#2c7b7f">
             <!--<Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

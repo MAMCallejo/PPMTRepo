@@ -6,11 +6,25 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <!--
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.LightBlue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.LightBlue.xaml" /> -->
             </ResourceDictionary.MergedDictionaries>
+            
+            <!-- primary -->
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#E8E4E4"/>
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#E8E4E4"/>
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#000000"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#E8E4E4"/>
+            <!-- accent -->
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#5C5B5E"/>
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#E8E4E4"/>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

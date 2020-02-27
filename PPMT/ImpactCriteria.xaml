@@ -23,8 +23,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         
        
@@ -86,9 +86,9 @@
             *Brand reputation, privacy, ethics &amp; market perception
         </TextBlock>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="15" Click="nextButtonClick" Grid.Row="5" Grid.Column="4"/>
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="15" Click="nextButtonClick" Grid.Row="5" Grid.Column="4" Foreground="#2c7b7f"/>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Back" Click="backBtn" Grid.Row="5" Grid.Column="3"/>
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Back" Click="backBtn" Grid.Row="5" Grid.Column="3" Foreground="#2c7b7f"/>
 
     </Grid>
 </Page>

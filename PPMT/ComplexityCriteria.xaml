@@ -23,8 +23,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
 
@@ -94,9 +94,9 @@
                  The project can be implemented across part of or all of Allstate
             </TextBlock>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Finish" FontSize="15" Click="nextButtonClicked" Grid.Row="6" Grid.Column="4"/>
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Finish" FontSize="15" Click="nextButtonClicked" Grid.Row="6" Grid.Column="4" Foreground="#2c7b7f"/>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Back" FontSize="15" Click="backBtn" Grid.Row="6" Grid.Column="3"/>
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Back" FontSize="15" Click="backBtn" Grid.Row="6" Grid.Column="3" Foreground="#2c7b7f"/>
 
 
     </Grid>
