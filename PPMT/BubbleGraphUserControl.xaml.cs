@@ -66,7 +66,11 @@ namespace PPMT
 
                     DataLabels = true,
 
-                    LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)]   
+                    LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
+
+                    Foreground = new SolidColorBrush(Colors.White),
+
+                    FontStretch = FontStretches.Condensed
 
                 },
 

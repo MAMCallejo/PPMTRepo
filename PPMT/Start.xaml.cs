@@ -41,7 +41,7 @@ namespace PPMT
             d = date.Text;
             dead = deadline.Text;
             sav = savings.Text;
-            parsedSav = int.Parse(sav);
+                parsedSav = int.Parse(sav);
             App.Current.Properties["projectName"] = n;
             App.Current.Properties["projectSponsor"] = s;
             App.Current.Properties["requestDate"] = d;
