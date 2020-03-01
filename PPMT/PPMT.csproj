@@ -75,9 +75,14 @@
     <Compile Include="BubbleGraphUserControl.xaml.cs">
       <DependentUpon>BubbleGraphUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ItemMenu.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="NewProj.xaml.cs">
       <DependentUpon>NewProj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubItem.cs" />
+    <Compile Include="UserControlMenuItem.xaml.cs">
+      <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
     </Compile>
     <Page Include="ComplexityCriteria.xaml">
       <SubType>Designer</SubType>
@@ -114,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Start.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlMenuItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
