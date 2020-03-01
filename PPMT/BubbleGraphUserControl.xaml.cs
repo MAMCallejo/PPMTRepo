@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,10 @@ namespace PPMT
 
         private Dictionary<Tuple<double, double>, int> BubbleLabelInstances;
 
+        public Dictionary<Tuple<double, double> , ArrayList> BubbleList;
+
+        public List<Project> list;
+
         public static BubbleGraphUserControl BubbleGraph;
 
         public BubbleGraphUserControl()
@@ -51,6 +56,10 @@ namespace PPMT
             BubbleLabels = new Dictionary<Tuple<double, double>, string>();
 
             BubbleLabelInstances = new Dictionary<Tuple<double, double>, int>();
+
+            BubbleList = new Dictionary<Tuple<double, double>, ArrayList>();
+
+            list = new List<Project>();
 
             SeriesCollection = new SeriesCollection
             {
@@ -78,7 +87,9 @@ namespace PPMT
 
             DataContext = this;
 
+            //Read the data from existing files
             readFile();
+
         }
         
 
@@ -104,6 +115,7 @@ namespace PPMT
 
         }
 
+        //Creates a new project on the graph
         public void AddNewProject(Project newProject)
         {
 
@@ -128,6 +140,12 @@ namespace PPMT
 
                         BubbleLabels[newTuple] = BubbleLabelInstances[newTuple] + " projects";
 
+                        ArrayList listOfProjects = BubbleList[newTuple];
+
+                        listOfProjects.Add(newProject);
+
+                        BubbleList[newTuple] = listOfProjects;
+
                     }
                     else
                     {
@@ -135,6 +153,12 @@ namespace PPMT
                         BubbleLabels.Add(newTuple, newProject.pName);
 
                         BubbleLabelInstances.Add(newTuple, 1);
+
+                        ArrayList listOfProjects = new ArrayList();
+
+                        listOfProjects.Add(newProject);
+
+                        BubbleList.Add(newTuple, listOfProjects);
 
                     }
 
@@ -145,24 +169,29 @@ namespace PPMT
         }
 
 
+        //Reads the json file and initializes the list with items
         public void readFile()
         {
             using(StreamReader r = new StreamReader("projects.json"))
             {
                 string json = r.ReadToEnd();
 
-                List<Project> list = JsonConvert.DeserializeObject<List<Project>>(json);
+                list = JsonConvert.DeserializeObject<List<Project>>(json);
 
                 if (list != null)
                 {
+
                     foreach (var project in list)
                     {
                         AddNewProject(project);
+
                     }
                 }
 
             }
+
         }
+
 
     }
 }

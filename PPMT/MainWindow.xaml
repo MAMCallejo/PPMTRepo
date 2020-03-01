@@ -40,12 +40,19 @@
         <ScrollViewer Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Auto"
                       Background="White" x:Name="scrollOut" Visibility="Collapsed">
-           
-            <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" FontFamily="Gotham Book" Panel.ZIndex="2"
+
+            <StackPanel x:Name="Menu" Margin="10">
+                
+                <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" FontFamily="Gotham Book" Panel.ZIndex="2"
                    Foreground="#2c7b7f" FontSize="20"
                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
                    Background="White" Click="newProject" Content="New Project">
-            </Button>
+                </Button>
+                
+                
+                
+            </StackPanel>
+            
         </ScrollViewer>
         
 

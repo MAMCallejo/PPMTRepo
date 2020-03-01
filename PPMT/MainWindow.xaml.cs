@@ -20,24 +20,28 @@ namespace PPMT
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public static MainWindow mainAccess;
+
         public MainWindow()
         {
             InitializeComponent();
 
+            mainAccess = this;
+
+            createSlideProj();
         }
 
+        //Open window to get user data
         private void newProject(object sender, RoutedEventArgs e)
         {
-            /*
-            //How to open in a certain area
-            Main.Content = new ImpactCriteria();
-            */
 
             NewProj subWindow = new NewProj();
             subWindow.Owner = this;
             subWindow.Show();
         }
 
+        //Controls the slide out window that contains the list
         private void slideOut(object sender, RoutedEventArgs e)
         {
             if(scrollOut.IsVisible == true)
@@ -57,7 +61,22 @@ namespace PPMT
             {
                 Grid.SetColumnSpan(graphSize, 3);
             }
+        }
 
+        public void createSlideProj()
+        {
+            List<Project> list = PPMT.BubbleGraphUserControl.BubbleGraph.list;
+
+            int length = list.Count;
+
+            for (int i = 0; i < length; i++)
+            {
+                var projMenu = new List<SubItem>();
+                projMenu.Add(new SubItem(list[i]));
+                var proj1 = new ItemMenu(list[i].pName, projMenu, i);
+
+                Menu.Children.Add(new UserControlMenuItem(proj1));
+            }
         }
     }
 }
