@@ -10,31 +10,31 @@ namespace PPMT
     {
         public SubItem(Project p, UserControlMenuItem screen = null)
         {
-            pSponsor = p.pSponsor;
+            pSponsor = "Sponsor: " + p.pSponsor;
 
-            rDate = p.rDate;
+            rDate = "Requested Date: " + p.rDate;
 
-            pDeadline = p.pDeadline;
+            pDeadline = "Deadline: " + p.pDeadline;
 
-            pSavings = p.pSavings;
+            pSavings = "Estimated Savings: " + p.pSavings;
 
-            value = p.value;
+            value = "Value: " + p.value;
 
-            transformativeG = p.transformativeG;
+            transformativeG = "Transformative Growth: " + p.transformativeG;
 
-            hrpriority = p.hrpriority;
+            hrpriority = "HR Priority: " + p.hrpriority;
 
-            risk = p.risk;
+            risk = "Risk: " + p.risk;
 
-            resource = p.resource;
+            resource = "Resources" + p.resource;
 
-            data = p.data;
+            data = "Data: " + p.data;
 
-            vendors = p.vendors;
+            vendors = "Vendors & Technology: " + p.vendors;
 
-            sponsorship = p.sponsorship;
+            sponsorship = "Sponsorship: " + p.sponsorship;
 
-            implementation = p.implementation;
+            implementation = "Implementation: " + p.implementation;
 
             Screen = screen;
         }
@@ -43,16 +43,16 @@ namespace PPMT
         public string pSponsor { get; set; }
         public string rDate { get; set; }
         public string pDeadline { get; set; }
-        public int pSavings { get; set; }
-        public double value { get; set; }
-        public double transformativeG { get; set; }
-        public double hrpriority { get; set; }
-        public double risk { get; set; }
-        public double resource { get; set; }
-        public double data { get; set; }
-        public double vendors { get; set; }
-        public double sponsorship { get; set; }
-        public double implementation { get; set; }
+        public string pSavings { get; set; }
+        public string value { get; set; }
+        public string transformativeG { get; set; }
+        public string hrpriority { get; set; }
+        public string risk { get; set; }
+        public string resource { get; set; }
+        public string data { get; set; }
+        public string vendors { get; set; }
+        public string sponsorship { get; set; }
+        public string implementation { get; set; }
 
     }
 }

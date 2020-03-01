@@ -7,15 +7,32 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d">
     <Grid>
-        <ListBoxItem x:Name="ListViewItemMenu" Content="{Binding Path=Header}" Padding="37 14" FontSize="15" Foreground="#2c7b7f" HorizontalAlignment="Left"/>
-        <Expander x:Name="ExpanderMenu" Header="{Binding Path=Header}" IsExpanded="False" HorizontalAlignment="Center" Background="{x:Null}" Foreground="#2c7b7f">
-            <ListView x:Name="ListViewMenu" ItemsSource="{Binding Path=SubItems}" Foreground="#2c7b7f" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                <ListView.ItemTemplate>
-                   <DataTemplate>
-                        <TextBlock Text="{Binding Path=pSponsor}" HorizontalAlignment="Center"/>
-                    </DataTemplate> 
-                </ListView.ItemTemplate>
-            </ListView>
-        </Expander>
+        <ListBoxItem x:Name="ListViewItemMenu" Content="{Binding Path=Header}" Padding="37 14" FontSize="1" Foreground="#2c7b7f" HorizontalAlignment="Left"/>
+        <Expander x:Name="ExpanderMenu" IsExpanded="False" HorizontalAlignment="Left" Background="{x:Null}" Foreground="#2c7b7f">
+            <Expander.Header>
+                <TextBlock Text="{Binding Path=Header}" TextWrapping="Wrap" FontSize="15" FontFamily="Gotham Book" FontWeight="Bold"></TextBlock>    
+            </Expander.Header>
+                <ListView x:Name="ListViewMenu" ItemsSource="{Binding Path=SubItems}" Foreground="#2c7b7f" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=pSponsor}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=rDate}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=pDeadline}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=pSavings}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=value}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=transformativeG}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=hrpriority}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=risk}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=resource}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=data}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=vendors}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=sponsorship}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                                <TextBlock Text="{Binding Path=implementation}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Expander>
     </Grid>
 </UserControl>
