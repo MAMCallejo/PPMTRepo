@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,19 +27,19 @@ namespace PPMT
     public partial class BubbleGraphUserControl : UserControl
     {
 
-        private Double resourceWeight = 0.1;
-        private Double dataWeight = 0.15;
-        private Double vendorsWeight = 0.2;
-        private Double sponsorshipWeight = 0.3;
-        private Double implementationWeight = 0.25;
-        private Double valueWeight = 0.3;
-        private Double transformativeGWeight = 0.3;
-        private Double hrPriorityWeight = 0.3;
-        private Double riskWeight = 0.1;
+        private double resourceWeight = 0.1;
+        private double dataWeight = 0.15;
+        private double vendorsWeight = 0.2;
+        private double sponsorshipWeight = 0.3;
+        private double implementationWeight = 0.25;
+        private double valueWeight = 0.3;
+        private double transformativeGWeight = 0.3;
+        private double hrPriorityWeight = 0.3;
+        private double riskWeight = 0.1;
+
+        private int counter;
 
         private Dictionary<Tuple<double, double>, string> BubbleLabels;
-
-        private Dictionary<Tuple<double, double>, int> BubbleLabelInstances;
 
         public static BubbleGraphUserControl BubbleGraph;
 
@@ -48,14 +49,15 @@ namespace PPMT
 
             BubbleGraph = this;
 
-            BubbleLabels = new Dictionary<Tuple<double, double>, string>();
+            counter = 1;
 
-            BubbleLabelInstances = new Dictionary<Tuple<double, double>, int>();
+            BubbleLabels = new Dictionary<Tuple<double, double>, string>();
 
             SeriesCollection = new SeriesCollection
             {
                 new ScatterSeries
                 {
+
                     Title = "MainSeries",
 
                     Values = new ChartValues<ScatterPoint>{},
@@ -64,13 +66,15 @@ namespace PPMT
 
                     MaxPointShapeDiameter = 85,
 
-                    DataLabels = true,
+                    DataLabels = false,
 
                     LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
 
-                    Foreground = new SolidColorBrush(Colors.White),
+                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#72bcd4")),
 
-                    FontStretch = FontStretches.Condensed
+                    Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
+
+                    StrokeThickness = 2,
 
                 },
 
@@ -124,17 +128,23 @@ namespace PPMT
                     if (BubbleLabels.ContainsKey(newTuple))
                     {
 
-                        BubbleLabelInstances[newTuple] = BubbleLabelInstances[newTuple] + 1;
+                        string newLabel = counter.ToString() + ". " + newProject.pName;
 
-                        BubbleLabels[newTuple] = BubbleLabelInstances[newTuple] + " projects";
+                        string oldLabel = BubbleLabels[newTuple];
+
+                        BubbleLabels[newTuple] = oldLabel + Environment.NewLine + newLabel;
+
+                        counter++;
 
                     }
                     else
                     {
 
-                        BubbleLabels.Add(newTuple, newProject.pName);
+                        string newLabel = counter.ToString() + ". " + newProject.pName;
 
-                        BubbleLabelInstances.Add(newTuple, 1);
+                        BubbleLabels.Add(newTuple, newLabel);
+
+                        counter++;
 
                     }
 

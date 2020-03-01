@@ -67,6 +67,10 @@
 
             </lvc:CartesianChart.AxisX>
 
+            <lvc:CartesianChart.DataTooltip>
+                <lvc:DefaultTooltip ShowSeries="False" Background="DimGray" Foreground="White" FontSize="15" FontWeight="Bold"/>
+            </lvc:CartesianChart.DataTooltip>
+
         </lvc:CartesianChart>
         
     </Grid>
