@@ -202,6 +202,10 @@ namespace PPMT
 
         }
 
-
+        //Opens slide out menu when a bubble is clicked
+        private void ChartOnDataClick(object sender, ChartPoint chartPoint)
+        {
+            MainWindow.mainAccess.slideControls();
+        }
     }
 }

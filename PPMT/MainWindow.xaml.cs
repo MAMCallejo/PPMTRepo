@@ -51,7 +51,13 @@ namespace PPMT
         //Controls the slide out window that contains the list
         private void slideOut(object sender, RoutedEventArgs e)
         {
-            if(scrollOut.IsVisible == true)
+            slideControls();
+        }
+
+
+        public void slideControls()
+        {
+            if (scrollOut.IsVisible == true)
             {
                 scrollOut.Visibility = Visibility.Collapsed;
             }
@@ -60,7 +66,7 @@ namespace PPMT
                 scrollOut.Visibility = Visibility.Visible;
             }
 
-            if(scrollOut.IsVisible == true)
+            if (scrollOut.IsVisible == true)
             {
                 Grid.SetColumnSpan(graphSize, 1);
             }
@@ -70,6 +76,7 @@ namespace PPMT
             }
         }
 
+        //Initialize slide out menu and content
         public void createSlideProj()
         {
             List<Project> list = PPMT.BubbleGraphUserControl.BubbleGraph.list;

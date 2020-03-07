@@ -11,7 +11,7 @@ namespace PPMT
     {
         public ItemMenu(string header, List<SubItem> subItems, int num)
         {
-            LNum = num;
+            LNum = num + 1;
             Header = LNum + ". "+ header;
             SubItems = subItems;        
         }

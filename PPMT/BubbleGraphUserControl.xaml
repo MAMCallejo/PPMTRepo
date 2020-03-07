@@ -46,7 +46,10 @@
 
         <Rectangle Panel.ZIndex="0" Grid.Row="0" Grid.ColumnSpan="3" Fill="White"/>
 
-        <lvc:CartesianChart Margin="20" Grid.Row="1" Grid.ColumnSpan="3" Series="{Binding SeriesCollection}">
+        <lvc:CartesianChart Margin="20" Grid.Row="1" 
+                            Grid.ColumnSpan="3" 
+                            Series="{Binding SeriesCollection}"
+                            DataClick="ChartOnDataClick">
             <lvc:CartesianChart.AxisY>
 
                 <lvc:Axis ShowLabels="True" Title="Impact" Foreground="White" FontSize="17" MaxValue="4" MinValue="1">
