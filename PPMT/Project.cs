@@ -22,5 +22,6 @@ namespace PPMT
         public double vendors { get; set; }
         public double sponsorship { get; set; }
         public double implementation { get; set; }
+        public int index { get; set; }
     }
 }

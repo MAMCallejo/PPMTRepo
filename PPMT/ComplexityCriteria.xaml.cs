@@ -46,7 +46,8 @@ namespace PPMT
             App.Current.Properties["vendors"] = vendors;
             App.Current.Properties["sponsorship"] = sponsorship;
             App.Current.Properties["implementation"] = implementation;
-            
+
+            int index = PPMT.MainWindow.wind.counter;
             Project newProj = new Project()
             {
                 pName = ((string)App.Current.Properties["projectName"]),
@@ -62,12 +63,14 @@ namespace PPMT
                 data = ((double)App.Current.Properties["data"]),
                 vendors = ((double)App.Current.Properties["vendors"]),
                 sponsorship = ((double)App.Current.Properties["sponsorship"]),
-                implementation = ((double)App.Current.Properties["implementation"])
+                implementation = ((double)App.Current.Properties["implementation"]),
+                index = index
             };
 
             List<Project> list;
 
             string docPath = Directory.GetCurrentDirectory();
+
 
             using (StreamReader r = new StreamReader("projects.json"))
             {
@@ -94,8 +97,11 @@ namespace PPMT
 
             PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(newProj);
 
-            PPMT.NewProj.projectWindow.Close();
-
+            var projMenu = new List<SubItem>();
+            projMenu.Add(new SubItem(newProj));
+            var proj1 = new ItemMenu(newProj.pName, projMenu, index);
+            PPMT.MainWindow.wind.counter = index + 1;
+            PPMT.MainWindow.wind.Menu.Children.Add(new UserControlMenuItem(proj1));
         }
 
         private void backBtn(object sender, RoutedEventArgs e)

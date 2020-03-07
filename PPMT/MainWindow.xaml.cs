@@ -20,11 +20,18 @@ namespace PPMT
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow wind;
 
         public static MainWindow mainAccess;
 
+        public int counter;
+
         public MainWindow()
         {
+            wind = this;
+
+            counter = 0;
+
             InitializeComponent();
 
             mainAccess = this;
@@ -71,6 +78,7 @@ namespace PPMT
 
             for (int i = 0; i < length; i++)
             {
+                counter++;
                 var projMenu = new List<SubItem>();
                 projMenu.Add(new SubItem(list[i]));
                 var proj1 = new ItemMenu(list[i].pName, projMenu, i);

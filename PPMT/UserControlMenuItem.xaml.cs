@@ -29,5 +29,13 @@ namespace PPMT
 
             this.DataContext = itemMenu;
         }
+
+        private void stackTapped(object sender, RoutedEventArgs e)
+        {
+
+            /*DataTemplate dataTemplate = ListViewItemMenu.te;
+            string sponsor = (string)st.Children.spon.Text;
+            MessageBox.Show(sponsor);*/
+        }
     }
 }

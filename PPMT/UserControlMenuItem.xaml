@@ -14,23 +14,25 @@
             </Expander.Header>
                 <ListView x:Name="ListViewMenu" ItemsSource="{Binding Path=SubItems}" Foreground="#2c7b7f" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Path=pSponsor}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=rDate}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=pDeadline}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=pSavings}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=value}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=transformativeG}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=hrpriority}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=risk}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=resource}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=data}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=vendors}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=sponsorship}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                                <TextBlock Text="{Binding Path=implementation}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                            </StackPanel>
-                        </DataTemplate>
+                    <DataTemplate>
+                        <StackPanel x:Name="st">
+
+                            <TextBlock x:Name="spon" Text="{Binding Path=pSponsor}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=rDate}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=pDeadline}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=pSavings}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=value}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=transformativeG}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=hrpriority}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=risk}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=resource}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=data}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=vendors}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=sponsorship}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=implementation}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <Button Click="stackTapped">Edit</Button>
+                        </StackPanel>
+                    </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Expander>
