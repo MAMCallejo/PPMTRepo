@@ -47,7 +47,8 @@ namespace PPMT
             App.Current.Properties["sponsorship"] = sponsorship;
             App.Current.Properties["implementation"] = implementation;
 
-            int index = PPMT.MainWindow.mainAccess.counter;
+            int index = PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.Count;
+
             Project newProj = new Project()
             {
                 pName = ((string)App.Current.Properties["projectName"]),
@@ -67,43 +68,26 @@ namespace PPMT
                 index = index
             };
 
-            List<Project> list;
-
             string docPath = Directory.GetCurrentDirectory();
 
+            PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.Add(newProj);
 
-            using (StreamReader r = new StreamReader("projects.json"))
-            {
-                string json = r.ReadToEnd();
-
-                 list = JsonConvert.DeserializeObject<List<Project>>(json);
-
-                if (list == null)
-                {
-                    List<Project> newList = new List<Project>();
-                    newList.Add(newProj);
-                    list = newList;
-                }
-                else
-                {
-                    list.Add(newProj);
-                }
-
-            }
-            
-            string convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
+            string convertedJson = JsonConvert.SerializeObject(PPMT.BubbleGraphUserControl.BubbleGraph.JSONList, Formatting.Indented);
 
             File.WriteAllText((System.IO.Path.Combine(docPath,"projects.json")), convertedJson);
 
             PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(newProj);
 
             var projMenu = new List<SubItem>();
+
             projMenu.Add(new SubItem(newProj));
+
             var proj1 = new ItemMenu(newProj.pName, projMenu, index);
-            PPMT.MainWindow.mainAccess.counter = index + 1;
+
             PPMT.MainWindow.mainAccess.Menu.Children.Add(new UserControlMenuItem(proj1));
 
             PPMT.NewProj.projectWindow.Close();
+
         }
 
         private void backBtn(object sender, RoutedEventArgs e)

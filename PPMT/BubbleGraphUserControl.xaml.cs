@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Collections;
 using System.Linq;
 using System.Text;
@@ -39,11 +38,9 @@ namespace PPMT
         private double hrPriorityWeight = 0.3;
         private double riskWeight = 0.1;
 
-        private int counter;
-
         private Dictionary<Tuple<double, double>, string> BubbleLabels;
 
-        public OrderedDictionary BubbleList;
+        public Dictionary<Tuple<double, double>, ArrayList> BubbleList;
 
         public List<Project> JSONList;
 
@@ -55,11 +52,9 @@ namespace PPMT
 
             BubbleGraph = this;
 
-            counter = 1;
-
             BubbleLabels = new Dictionary<Tuple<double, double>, string>();
 
-            BubbleList = new OrderedDictionary();
+            BubbleList = new Dictionary<Tuple<double, double>, ArrayList>();
 
             JSONList = new List<Project>();
 
@@ -141,13 +136,11 @@ namespace PPMT
                     if (BubbleLabels.ContainsKey(newTuple))
                     {
 
-                        string newLabel = counter.ToString() + ". " + newProject.pName;
+                        string newLabel = newProject.index+1 + ". " + newProject.pName;
 
                         string oldLabel = BubbleLabels[newTuple];
 
                         BubbleLabels[newTuple] = oldLabel + Environment.NewLine + newLabel;
-
-                        counter++;
 
                         ArrayList listOfProjects = (ArrayList) BubbleList[newTuple];
 
@@ -159,11 +152,9 @@ namespace PPMT
                     else
                     {
 
-                        string newLabel = counter.ToString() + ". " + newProject.pName;
+                        string newLabel = newProject.index+1 + ". " + newProject.pName;
 
                         BubbleLabels.Add(newTuple, newLabel);
-
-                        counter++;
 
                         ArrayList listOfProjects = new ArrayList();
 
@@ -187,15 +178,20 @@ namespace PPMT
             {
                 string json = r.ReadToEnd();
 
-                JSONList = JsonConvert.DeserializeObject<List<Project>>(json);
+                List<Project> fileList = JsonConvert.DeserializeObject<List<Project>>(json);
 
-                if (JSONList != null)
+                if (fileList != null)
                 {
 
-                    foreach (var project in JSONList)
+                    foreach (var project in fileList)
                     {
+
                         AddNewProject(project);
+
+                        JSONList.Add(project);
+
                     }
+
                 }
 
             }

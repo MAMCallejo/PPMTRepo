@@ -23,18 +23,15 @@ namespace PPMT
 
         public static MainWindow mainAccess;
 
-        public int counter;
-
         public MainWindow()
         {
-
-            counter = 0;
 
             InitializeComponent();
 
             mainAccess = this;
 
             createSlideProj();
+
         }
 
         //Open window to get user data
@@ -42,8 +39,11 @@ namespace PPMT
         {
 
             NewProj subWindow = new NewProj();
+
             subWindow.Owner = this;
+
             subWindow.Show();
+
         }
 
         //Controls the slide out window that contains the list
@@ -83,12 +83,15 @@ namespace PPMT
 
             for (int i = 0; i < length; i++)
             {
-                counter++;
-                var projMenu = new List<SubItem>();
-                projMenu.Add(new SubItem(JSONList[i]));
-                var proj1 = new ItemMenu(JSONList[i].pName, projMenu, i);
 
-                Menu.Children.Add(new UserControlMenuItem(proj1));
+                var projMenu = new List<SubItem>();
+
+                projMenu.Add(new SubItem(JSONList[i]));
+
+                var newProj = new ItemMenu(JSONList[i].pName, projMenu, i);
+
+                Menu.Children.Add(new UserControlMenuItem(newProj));
+
             }
         }
     }
