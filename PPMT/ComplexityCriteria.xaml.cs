@@ -67,7 +67,7 @@ namespace PPMT
                 index = index
             };
 
-            List<Project> list;
+            List<Project> JSONlist;
 
             string docPath = Directory.GetCurrentDirectory();
 
@@ -76,33 +76,35 @@ namespace PPMT
             {
                 string json = r.ReadToEnd();
 
-                 list = JsonConvert.DeserializeObject<List<Project>>(json);
+                 JSONlist = JsonConvert.DeserializeObject<List<Project>>(json);
 
-                if (list == null)
+                if (JSONlist == null)
                 {
                     List<Project> newList = new List<Project>();
                     newList.Add(newProj);
-                    list = newList;
+                    JSONlist = newList;
                 }
                 else
                 {
-                    list.Add(newProj);
+                   JSONlist.Add(newProj);
                 }
 
             }
             
-            string convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
+            string convertedJson = JsonConvert.SerializeObject(JSONlist, Formatting.Indented);
 
             File.WriteAllText((System.IO.Path.Combine(docPath,"projects.json")), convertedJson);
 
             PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(newProj);
 
+            //Adds Project to slideout list
             var projMenu = new List<SubItem>();
             projMenu.Add(new SubItem(newProj));
             var proj1 = new ItemMenu(newProj.pName, projMenu, index);
             PPMT.MainWindow.mainAccess.counter = index + 1;
             PPMT.MainWindow.mainAccess.Menu.Children.Add(new UserControlMenuItem(proj1));
 
+            //Closes window 
             PPMT.NewProj.projectWindow.Close();
         }
 

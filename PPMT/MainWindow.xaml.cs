@@ -77,16 +77,16 @@ namespace PPMT
         //Initialize slide out menu and content
         public void createSlideProj()
         {
-            List<Project> JSONList = PPMT.BubbleGraphUserControl.BubbleGraph.JSONList;
+            List<Project> SlideOutList = PPMT.BubbleGraphUserControl.BubbleGraph.JSONList;
 
-            int length = JSONList.Count;
+            int length = SlideOutList.Count;
 
             for (int i = 0; i < length; i++)
             {
                 counter++;
                 var projMenu = new List<SubItem>();
-                projMenu.Add(new SubItem(JSONList[i]));
-                var proj1 = new ItemMenu(JSONList[i].pName, projMenu, i);
+                projMenu.Add(new SubItem(SlideOutList[i]));
+                var proj1 = new ItemMenu(SlideOutList[i].pName, projMenu, i);
 
                 Menu.Children.Add(new UserControlMenuItem(proj1));
             }
