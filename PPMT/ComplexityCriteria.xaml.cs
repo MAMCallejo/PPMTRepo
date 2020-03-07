@@ -102,6 +102,8 @@ namespace PPMT
             var proj1 = new ItemMenu(newProj.pName, projMenu, index);
             PPMT.MainWindow.wind.counter = index + 1;
             PPMT.MainWindow.wind.Menu.Children.Add(new UserControlMenuItem(proj1));
+
+            PPMT.NewProj.projectWindow.Close();
         }
 
         private void backBtn(object sender, RoutedEventArgs e)
