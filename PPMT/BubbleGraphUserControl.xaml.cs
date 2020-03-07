@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Collections;
 using System.Linq;
 using System.Text;
@@ -42,9 +43,9 @@ namespace PPMT
 
         private Dictionary<Tuple<double, double>, string> BubbleLabels;
 
-        public Dictionary<Tuple<double, double> , ArrayList> BubbleList;
+        public OrderedDictionary BubbleList;
 
-        public List<Project> list;
+        public List<Project> JSONList;
 
         public static BubbleGraphUserControl BubbleGraph;
 
@@ -58,9 +59,9 @@ namespace PPMT
 
             BubbleLabels = new Dictionary<Tuple<double, double>, string>();
 
-            BubbleList = new Dictionary<Tuple<double, double>, ArrayList>();
+            BubbleList = new OrderedDictionary();
 
-            list = new List<Project>();
+            JSONList = new List<Project>();
 
             SeriesCollection = new SeriesCollection
             {
@@ -148,7 +149,7 @@ namespace PPMT
 
                         counter++;
 
-                        ArrayList listOfProjects = BubbleList[newTuple];
+                        ArrayList listOfProjects = (ArrayList) BubbleList[newTuple];
 
                         listOfProjects.Add(newProject);
 
@@ -186,15 +187,14 @@ namespace PPMT
             {
                 string json = r.ReadToEnd();
 
-                list = JsonConvert.DeserializeObject<List<Project>>(json);
+                JSONList = JsonConvert.DeserializeObject<List<Project>>(json);
 
-                if (list != null)
+                if (JSONList != null)
                 {
 
-                    foreach (var project in list)
+                    foreach (var project in JSONList)
                     {
                         AddNewProject(project);
-
                     }
                 }
 

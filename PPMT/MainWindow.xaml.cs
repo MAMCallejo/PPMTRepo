@@ -20,7 +20,6 @@ namespace PPMT
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static MainWindow wind;
 
         public static MainWindow mainAccess;
 
@@ -28,7 +27,6 @@ namespace PPMT
 
         public MainWindow()
         {
-            wind = this;
 
             counter = 0;
 
@@ -72,16 +70,16 @@ namespace PPMT
 
         public void createSlideProj()
         {
-            List<Project> list = PPMT.BubbleGraphUserControl.BubbleGraph.list;
+            List<Project> JSONList = PPMT.BubbleGraphUserControl.BubbleGraph.JSONList;
 
-            int length = list.Count;
+            int length = JSONList.Count;
 
             for (int i = 0; i < length; i++)
             {
                 counter++;
                 var projMenu = new List<SubItem>();
-                projMenu.Add(new SubItem(list[i]));
-                var proj1 = new ItemMenu(list[i].pName, projMenu, i);
+                projMenu.Add(new SubItem(JSONList[i]));
+                var proj1 = new ItemMenu(JSONList[i].pName, projMenu, i);
 
                 Menu.Children.Add(new UserControlMenuItem(proj1));
             }

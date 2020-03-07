@@ -47,7 +47,7 @@ namespace PPMT
             App.Current.Properties["sponsorship"] = sponsorship;
             App.Current.Properties["implementation"] = implementation;
 
-            int index = PPMT.MainWindow.wind.counter;
+            int index = PPMT.MainWindow.mainAccess.counter;
             Project newProj = new Project()
             {
                 pName = ((string)App.Current.Properties["projectName"]),
@@ -100,8 +100,8 @@ namespace PPMT
             var projMenu = new List<SubItem>();
             projMenu.Add(new SubItem(newProj));
             var proj1 = new ItemMenu(newProj.pName, projMenu, index);
-            PPMT.MainWindow.wind.counter = index + 1;
-            PPMT.MainWindow.wind.Menu.Children.Add(new UserControlMenuItem(proj1));
+            PPMT.MainWindow.mainAccess.counter = index + 1;
+            PPMT.MainWindow.mainAccess.Menu.Children.Add(new UserControlMenuItem(proj1));
 
             PPMT.NewProj.projectWindow.Close();
         }
