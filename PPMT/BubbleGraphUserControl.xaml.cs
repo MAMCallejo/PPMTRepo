@@ -202,6 +202,14 @@ namespace PPMT
         private void ChartOnDataClick(object sender, ChartPoint chartPoint)
         {
             MainWindow.mainAccess.slideControls();
+            
+            var bubbleTuple = new Tuple<double, double>(chartPoint.X, chartPoint.Y);
+
+            ArrayList bubbleProj = (ArrayList)BubbleList[bubbleTuple];
+
+            Project primaryProject = (Project) bubbleProj[0];
+
+            Console.WriteLine("This is the project you clicked on:" + primaryProject.pName);
         }
     }
 }
