@@ -209,6 +209,10 @@ namespace PPMT
 
             Project primaryProject = (Project) bubbleProj[0];
 
+            Edit subWindow = new Edit(primaryProject.pName);
+
+            subWindow.Show();
+
             Console.WriteLine("This is the project you clicked on:" + primaryProject.pName);
         }
     }

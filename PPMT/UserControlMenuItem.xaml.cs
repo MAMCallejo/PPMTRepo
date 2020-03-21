@@ -32,6 +32,12 @@ namespace PPMT
 
         private void stackTapped(object sender, RoutedEventArgs e)
         {
+            ListViewItem item = sender as ListViewItem;
+            if (item == null) return;
+
+            
+            MessageBox.Show("hsdhshd");
+            //MyDataItem = item.DataContext as MyDataItem;
 
             /*DataTemplate dataTemplate = ListViewItemMenu.te;
             string sponsor = (string)st.Children.spon.Text;

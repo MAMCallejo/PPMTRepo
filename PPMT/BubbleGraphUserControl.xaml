@@ -75,6 +75,24 @@
             </lvc:CartesianChart.DataTooltip>
 
         </lvc:CartesianChart>
-        
+        <Popup Name="MyPopup"
+
+               Placement="Mouse"
+
+               HorizontalOffset="-100"
+
+               VerticalOffset="-100"
+
+               AllowsTransparency="True">
+
+            <Grid>
+
+                <Label>hi</Label>
+
+             
+
+            </Grid>
+
+        </Popup>
     </Grid>
 </UserControl>

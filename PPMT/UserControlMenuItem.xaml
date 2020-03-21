@@ -15,9 +15,9 @@
                 <ListView x:Name="ListViewMenu" ItemsSource="{Binding Path=SubItems}" Foreground="#2c7b7f" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel x:Name="st">
+                        <StackPanel>
 
-                            <TextBlock x:Name="spon" Text="{Binding Path=pSponsor}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=pSponsor}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=rDate}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=pDeadline}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=pSavings}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
