@@ -20,9 +20,12 @@ namespace PPMT
     /// </summary>
     public partial class UserControlMenuItem : UserControl
     {
+        String head;
         public UserControlMenuItem(ItemMenu itemMenu)
         {
             InitializeComponent();
+
+            head = itemMenu.Header;
 
             ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
             ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;

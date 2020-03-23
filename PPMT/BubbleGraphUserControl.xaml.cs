@@ -42,6 +42,8 @@ namespace PPMT
 
         public Dictionary<Tuple<double, double>, ArrayList> BubbleList;
 
+        //public Dictionary<int, Project> JSONList;
+
         public List<Project> JSONList;
 
         public static BubbleGraphUserControl BubbleGraph;
@@ -55,6 +57,8 @@ namespace PPMT
             BubbleLabels = new Dictionary<Tuple<double, double>, string>();
 
             BubbleList = new Dictionary<Tuple<double, double>, ArrayList>();
+
+            //JSONList = new Dictionary<int, Project>();
 
             JSONList = new List<Project>();
 
@@ -115,6 +119,59 @@ namespace PPMT
 
         }
 
+        public void editProject(int index, Tuple<double, double> t, Project project)
+        {
+
+            var XCoord = calculateXCoord(project.resource, project.data, project.vendors, project.sponsorship, project.implementation);
+
+            var YCoord = calculateYCoord(project.value, project.transformativeG, project.hrpriority, project.risk);
+
+            var newBubble = new ScatterPoint(XCoord, YCoord, project.value);
+
+            var newTuple = new Tuple<double, double>(XCoord, YCoord);
+
+            string newLabel = project.pName;
+
+            if(BubbleList[t].Count == 1)
+            {
+                BubbleList.Remove(t);
+            }
+            else
+            {
+                int count = 0;
+                foreach(Project bubble in BubbleList[t])
+                {
+                    if(bubble.pName == project.pName)
+                    {
+                        BubbleList[t].RemoveAt(count);
+                    }
+                    count++;
+                }
+            }
+
+           // BubbleList.Remove(t);
+
+            BubbleLabels.Remove(t);
+
+            BubbleLabels.Add(newTuple, newLabel);
+
+            ArrayList listOfProjects = new ArrayList();
+
+            listOfProjects.Add(project);
+
+            BubbleList.Add(newTuple, listOfProjects);
+
+            SeriesCollection[0].Values[index] = newBubble;
+        }
+
+        public void deleteProject(int index, Tuple<double, double> t)
+        {
+
+            BubbleList.Remove(t);
+            SeriesCollection[0].Values.RemoveAt(index);
+           
+        }
+
         //Creates a new project on the graph
         public void AddNewProject(Project newProject)
         {
@@ -136,11 +193,13 @@ namespace PPMT
                     if (BubbleLabels.ContainsKey(newTuple))
                     {
 
-                        string newLabel = newProject.index+1 + ". " + newProject.pName;
+                        string newLabel = newProject.pName;
 
-                        string oldLabel = BubbleLabels[newTuple];
+                        //string oldLabel = BubbleLabels[newTuple];
 
-                        BubbleLabels[newTuple] = oldLabel + Environment.NewLine + newLabel;
+                        //BubbleLabels[newTuple] = oldLabel + Environment.NewLine + newLabel;
+
+                        BubbleLabels[newTuple] = newLabel;
 
                         ArrayList listOfProjects = (ArrayList) BubbleList[newTuple];
 
@@ -152,7 +211,7 @@ namespace PPMT
                     else
                     {
 
-                        string newLabel = newProject.index+1 + ". " + newProject.pName;
+                        string newLabel = newProject.pName;
 
                         BubbleLabels.Add(newTuple, newLabel);
 
@@ -190,6 +249,8 @@ namespace PPMT
 
                         JSONList.Add(project);
 
+                        //JSONList[project.index] = project;
+
                     }
 
                 }
@@ -209,8 +270,18 @@ namespace PPMT
 
             Project primaryProject = (Project) bubbleProj[0];
 
-            Edit subWindow = new Edit(primaryProject.pName);
+            int index = 0;
 
+            for(int i = 0; i < JSONList.Count; i++)
+            {
+                if(JSONList[i].pName == primaryProject.pName)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            Edit subWindow = new Edit(index, bubbleTuple, primaryProject);
             subWindow.Show();
 
             Console.WriteLine("This is the project you clicked on:" + primaryProject.pName);

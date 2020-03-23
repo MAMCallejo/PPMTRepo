@@ -82,7 +82,7 @@ namespace PPMT
 
             projMenu.Add(new SubItem(newProj));
 
-            var proj1 = new ItemMenu(newProj.pName, projMenu, index);
+            var proj1 = new ItemMenu(newProj.pName, projMenu, PPMT.MainWindow.mainAccess.Menu.Children.Count - 1);
 
             PPMT.MainWindow.mainAccess.Menu.Children.Add(new UserControlMenuItem(proj1));
 
