@@ -356,11 +356,9 @@ namespace PPMT
 
                         string newLabel = newProject.pName;
 
-                        //string oldLabel = BubbleLabels[newTuple];
+                        string oldLabel = BubbleLabels[newTuple];
 
-                        //BubbleLabels[newTuple] = oldLabel + Environment.NewLine + newLabel;
-
-                        BubbleLabels[newTuple] = newLabel;
+                        BubbleLabels[newTuple] = oldLabel + Environment.NewLine + newLabel;
 
                         ArrayList listOfProjects = (ArrayList) BubbleList[newTuple];
 
