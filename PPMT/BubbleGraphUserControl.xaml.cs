@@ -259,10 +259,10 @@ namespace PPMT
 
         }
 
-        //Opens slide out menu when a bubble is clicked
+        //Opens edit window when bubble is clicked
         private void ChartOnDataClick(object sender, ChartPoint chartPoint)
         {
-            MainWindow.mainAccess.slideControls();
+           // MainWindow.mainAccess.slideControls();
             
             var bubbleTuple = new Tuple<double, double>(chartPoint.X, chartPoint.Y);
 
