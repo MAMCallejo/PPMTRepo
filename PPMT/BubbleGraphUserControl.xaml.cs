@@ -295,7 +295,7 @@ namespace PPMT
             foreach (var series in SeriesCollection)
             {
 
-                if (series.Title.Equals("Other"))
+                if (series.Title.Equals(newProject.projectName))
                 {
 
                     var XCoord = calculateXCoord(newProject.resource, newProject.data, newProject.vendors, newProject.sponsorship, newProject.implementation);
