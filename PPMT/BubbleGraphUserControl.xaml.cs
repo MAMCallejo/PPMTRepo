@@ -67,7 +67,7 @@ namespace PPMT
                 new ScatterSeries
                 {
 
-                    Title = "MainSeries",
+                    Title = "Transformative Growth", // Light Blue
 
                     Values = new ChartValues<ScatterPoint>{},
 
@@ -86,6 +86,121 @@ namespace PPMT
                     StrokeThickness = 2,
 
                 },
+
+                new ScatterSeries
+                {
+
+                    Title = "Quality of Talent", // Light Yellow
+
+                    Values = new ChartValues<ScatterPoint>{},
+
+                    MinPointShapeDiameter = 45,
+
+                    MaxPointShapeDiameter = 85,
+
+                    DataLabels = false,
+
+                    LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
+
+                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff67d")),
+
+                    Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
+
+                    StrokeThickness = 2,
+
+                },
+
+                new ScatterSeries
+                {
+
+                    Title = "Measurement and KPI", // Light Red
+
+                    Values = new ChartValues<ScatterPoint>{},
+
+                    MinPointShapeDiameter = 45,
+
+                    MaxPointShapeDiameter = 85,
+
+                    DataLabels = false,
+
+                    LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
+
+                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f56566")),
+
+                    Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
+
+                    StrokeThickness = 2,
+
+                },
+
+                new ScatterSeries
+                {
+
+                    Title = "ONA", // Dark Blue
+
+                    Values = new ChartValues<ScatterPoint>{},
+
+                    MinPointShapeDiameter = 45,
+
+                    MaxPointShapeDiameter = 85,
+
+                    DataLabels = false,
+
+                    LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
+
+                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00008b")),
+
+                    Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff")),
+
+                    StrokeThickness = 2,
+
+                },
+
+                new ScatterSeries
+                {
+
+                    Title = "Consolidation/Cost", // Light Orange
+
+                    Values = new ChartValues<ScatterPoint>{},
+
+                    MinPointShapeDiameter = 45,
+
+                    MaxPointShapeDiameter = 85,
+
+                    DataLabels = false,
+
+                    LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
+
+                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f9953f")),
+
+                    Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
+
+                    StrokeThickness = 2,
+
+                },
+
+                new ScatterSeries
+                {
+
+                    Title = "Other", // Gray
+
+                    Values = new ChartValues<ScatterPoint>{},
+
+                    MinPointShapeDiameter = 45,
+
+                    MaxPointShapeDiameter = 85,
+
+                    DataLabels = false,
+
+                    LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
+
+                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9d9d9d")),
+
+                    Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
+
+                    StrokeThickness = 2,
+
+                }
 
             };
 
@@ -168,18 +283,19 @@ namespace PPMT
         {
 
             BubbleList.Remove(t);
+
             SeriesCollection[0].Values.RemoveAt(index);
            
         }
 
         //Creates a new project on the graph
-        public void AddNewProject(Project newProject)
+        public void AddNewProject(Project newProject, string projectCategory)
         {
 
             foreach (var series in SeriesCollection)
             {
 
-                if (series.Title.Equals("MainSeries"))
+                if (series.Title.Equals("Other"))
                 {
 
                     var XCoord = calculateXCoord(newProject.resource, newProject.data, newProject.vendors, newProject.sponsorship, newProject.implementation);
