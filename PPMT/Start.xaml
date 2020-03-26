@@ -56,14 +56,14 @@
         <TextBox Name="savings" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" PreviewTextInput="MaskNumericInput"
                    DataObject.Pasting="MaskNumericPaste" Height="25" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
 
-
-        <ComboBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Name="cmbCategory">
-            <ComboBoxItem Foreground="Black" IsSelected="True">Transformative Growth</ComboBoxItem>
-            <ComboBoxItem Foreground="White">Quality of Talent</ComboBoxItem>
-            <ComboBoxItem Foreground="White">Measurement and KPI</ComboBoxItem>
-            <ComboBoxItem Foreground="White">ONA</ComboBoxItem>
-            <ComboBoxItem Foreground="White">Consolidation/Cost</ComboBoxItem>
-            <ComboBoxItem Foreground="White">Other</ComboBoxItem>
+        <Label Content="Choose the Category" Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Name="cmbCategory" Foreground="White" FontSize="15">
+            <ComboBoxItem Foreground="#2c7b7f" IsSelected="True" FontSize="15">Transformative Growth</ComboBoxItem>
+            <ComboBoxItem Foreground="#2c7b7f" FontSize="15">Quality of Talent</ComboBoxItem>
+            <ComboBoxItem Foreground="#2c7b7f" FontSize="15">Measurement and KPI</ComboBoxItem>
+            <ComboBoxItem Foreground="#2c7b7f" FontSize="15">ONA</ComboBoxItem>
+            <ComboBoxItem Foreground="#2c7b7f" FontSize="15">Consolidation/Cost</ComboBoxItem>
+            <ComboBoxItem Foreground="#2c7b7f" FontSize="15">Other</ComboBoxItem>
         </ComboBox>
         
         
