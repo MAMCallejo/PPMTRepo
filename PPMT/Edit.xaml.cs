@@ -35,10 +35,13 @@ namespace PPMT
 
         Project project;
 
+        ScatterPoint oldBubble;
 
         public Edit(int i, Tuple<double, double> t, Project proj)
         {
             InitializeComponent();
+
+            oldBubble = new ScatterPoint(t.Item1, t.Item2, proj.value);
 
             n.Text = proj.pName;
             edit = this;
@@ -90,7 +93,7 @@ namespace PPMT
 
             File.WriteAllText((System.IO.Path.Combine(docPath, "projects.json")), convertedJson);
 
-            PPMT.BubbleGraphUserControl.BubbleGraph.editProject(index, tup, project);
+            PPMT.BubbleGraphUserControl.BubbleGraph.editProject(oldBubble, tup, project);
 
             edit.Close();
         }
@@ -98,7 +101,7 @@ namespace PPMT
         private void deleteButtonClicked(object sender, RoutedEventArgs e)
         {
             PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.RemoveAt(index);
-            PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(index, tup);
+            PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
             PPMT.MainWindow.mainAccess.createSlideProj();
 
             string docPath = Directory.GetCurrentDirectory();

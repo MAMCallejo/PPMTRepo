@@ -150,7 +150,7 @@ namespace PPMT
 
                     Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00008b")),
 
-                    Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff")),
+                    Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
                     StrokeThickness = 2,
 
@@ -234,7 +234,7 @@ namespace PPMT
 
         }
 
-        public void editProject(int index, Tuple<double, double> t, Project project)
+        public void editProject(ScatterPoint oldBubble, Tuple<double, double> t, Project project)
         {
 
             var XCoord = calculateXCoord(project.resource, project.data, project.vendors, project.sponsorship, project.implementation);
@@ -276,15 +276,60 @@ namespace PPMT
 
             BubbleList.Add(newTuple, listOfProjects);
 
-            SeriesCollection[0].Values[index] = newBubble;
+            foreach (var series in SeriesCollection)
+            {
+
+                if (series.Title.Equals(project.projectCategory))
+                {
+
+                   for (int i = 0; i < series.Values.Count; i++)
+                    {
+
+                        ScatterPoint seriesValue = (ScatterPoint) series.Values[i];
+
+                        if (seriesValue.X == oldBubble.X && seriesValue.Y == oldBubble.Y && seriesValue.Weight == oldBubble.Weight)
+                        {
+
+                            series.Values[i] = newBubble;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
         }
 
-        public void deleteProject(int index, Tuple<double, double> t)
+        public void deleteProject(ScatterPoint oldBubble, Tuple<double, double> t, Project project)
         {
 
             BubbleList.Remove(t);
 
-            SeriesCollection[0].Values.RemoveAt(index);
+            foreach (var series in SeriesCollection)
+            {
+
+                if (series.Title.Equals(project.projectCategory))
+                {
+
+                    for (int i = 0; i < series.Values.Count; i++)
+                    {
+
+                        ScatterPoint seriesValue = (ScatterPoint) series.Values[i];
+
+                        if (seriesValue.X == oldBubble.X && seriesValue.Y == oldBubble.Y && seriesValue.Weight == oldBubble.Weight)
+                        {
+
+                            series.Values.RemoveAt(i);
+
+                        }
+
+                    }
+
+                }
+
+            }
            
         }
 
@@ -295,7 +340,7 @@ namespace PPMT
             foreach (var series in SeriesCollection)
             {
 
-                if (series.Title.Equals(newProject.projectName))
+                if (series.Title.Equals(newProject.projectCategory))
                 {
 
                     var XCoord = calculateXCoord(newProject.resource, newProject.data, newProject.vendors, newProject.sponsorship, newProject.implementation);
