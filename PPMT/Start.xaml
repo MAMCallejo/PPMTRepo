@@ -15,6 +15,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="55"></RowDefinition>
         </Grid.RowDefinitions>
         
@@ -55,7 +56,19 @@
         <TextBox Name="savings" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" PreviewTextInput="MaskNumericInput"
                    DataObject.Pasting="MaskNumericPaste" Height="25" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="14" Click="okButtonClicked" Grid.Row="6" Grid.Column="4" Foreground="#2c7b7f">
+
+        <ComboBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Name="cmbCategory">
+            <ComboBoxItem Foreground="White" IsSelected="True">Transformative Growth</ComboBoxItem>
+            <ComboBoxItem Foreground="White">Quality of Talent</ComboBoxItem>
+            <ComboBoxItem Foreground="White">Measurement and KPI</ComboBoxItem>
+            <ComboBoxItem Foreground="White">ONA</ComboBoxItem>
+            <ComboBoxItem Foreground="White">Consolidation/Cost</ComboBoxItem>
+            <ComboBoxItem Foreground="White">Other</ComboBoxItem>
+        </ComboBox>
+        
+        
+        
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Continue" FontSize="14" Click="okButtonClicked" Grid.Row="7" Grid.Column="4" Foreground="#2c7b7f">
             <!--
             <Button.Resources>
                 <Style TargetType="Border">
@@ -64,7 +77,7 @@
             </Button.Resources> -->
         </Button>
 
-        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Cancel" FontSize="14" Click="cancelButtonClicked" Grid.Row="6" Grid.Column="3" Foreground="#2c7b7f">
+        <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="Cancel" FontSize="14" Click="cancelButtonClicked" Grid.Row="7" Grid.Column="3" Foreground="#2c7b7f">
             <!--<Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
