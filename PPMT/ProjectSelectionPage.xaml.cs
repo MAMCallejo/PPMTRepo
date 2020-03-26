@@ -36,10 +36,13 @@ namespace PPMT
             {
                 Project tempProject = (Project)bubbleProj[i];
 
+                SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(43,53,89));
+
                 Button button = new Button()
                 {
                     Content = tempProject.pName,
-                    Tag = tempProject
+                    Tag = tempProject,
+                    Foreground = brush,
                 };
 
                 button.Click += new RoutedEventHandler(button_Click);
