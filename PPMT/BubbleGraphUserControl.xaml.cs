@@ -442,7 +442,7 @@ namespace PPMT
                 }
             }
 
-            Edit subWindow = new Edit(index, bubbleTuple, primaryProject);
+            Edit subWindow = new Edit(index, bubbleTuple, primaryProject, bubbleProj);
             subWindow.Show();
 
             Console.WriteLine("This is the project you clicked on:" + primaryProject.pName);

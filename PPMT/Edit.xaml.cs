@@ -37,16 +37,56 @@ namespace PPMT
 
         ScatterPoint oldBubble;
 
-        public Edit(int i, Tuple<double, double> t, Project proj)
+        ProjectSelectionPage tempPage;
+
+
+
+        public Edit(int i, Tuple<double, double> t, Project proj, ArrayList bubbleProject)
         {
             InitializeComponent();
 
-            oldBubble = new ScatterPoint(t.Item1, t.Item2, proj.value);
+
+            //Creates project selection page if there is more than one project otherwise just do the normal constructor
+            tempPage = new ProjectSelectionPage(bubbleProject);
+
+            if (bubbleProject.Count > 1)
+            {
+                edit = this;
+                index = i;
+                tup = t;
+                Main.Content = tempPage;
+            }
+            else
+            {
+                oldBubble = new ScatterPoint(t.Item1, t.Item2, proj.value);
+
+                n.Text = proj.pName;
+                edit = this;
+                index = i;
+                tup = t;
+                project = proj;
+
+                val1.Value = proj.value;
+                val2.Value = proj.transformativeG;
+                val3.Value = proj.hrpriority;
+                val4.Value = proj.risk;
+                val5.Value = proj.resource;
+                val6.Value = proj.data;
+                val7.Value = proj.vendors;
+                val8.Value = proj.sponsorship;
+                val9.Value = proj.implementation;
+
+            }
+
+        }
+
+        public void multInitialize(Project proj)
+        {
+            oldBubble = new ScatterPoint(tup.Item1, tup.Item2, proj.value);
+
+            Main.Content = null;
 
             n.Text = proj.pName;
-            edit = this;
-            index = i;
-            tup = t;
             project = proj;
 
             val1.Value = proj.value;
@@ -59,7 +99,10 @@ namespace PPMT
             val8.Value = proj.sponsorship;
             val9.Value = proj.implementation;
 
+
+            Console.WriteLine(proj.pName);
         }
+
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
@@ -110,8 +153,6 @@ namespace PPMT
 
             File.WriteAllText((System.IO.Path.Combine(docPath, "projects.json")), convertedJson);
             edit.Close();
-
-
         }
 
     }

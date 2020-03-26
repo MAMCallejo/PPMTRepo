@@ -95,6 +95,9 @@
     <Compile Include="NewProj.xaml.cs">
       <DependentUpon>NewProj.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProjectSelectionPage.xaml.cs">
+      <DependentUpon>ProjectSelectionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubItem.cs" />
     <Compile Include="UserControlMenuItem.xaml.cs">
       <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
@@ -133,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NewProj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProjectSelectionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
