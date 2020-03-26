@@ -23,5 +23,6 @@ namespace PPMT
         public double sponsorship { get; set; }
         public double implementation { get; set; }
         public int index { get; set; }
+        public string projectCategory { get; set; }
     }
 }

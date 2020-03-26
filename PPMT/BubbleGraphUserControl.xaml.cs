@@ -289,7 +289,7 @@ namespace PPMT
         }
 
         //Creates a new project on the graph
-        public void AddNewProject(Project newProject, string projectCategory)
+        public void AddNewProject(Project newProject)
         {
 
             foreach (var series in SeriesCollection)

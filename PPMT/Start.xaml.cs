@@ -31,7 +31,7 @@ namespace PPMT
         string dead;
         string sav;
         int parsedSav;
-        string projectCategory;
+        string projectC;
 
         ImpactCriteria pg = new ImpactCriteria();
 
@@ -41,15 +41,17 @@ namespace PPMT
             s = sponsor.Text;
             d = date.Text;
             dead = deadline.Text;
+            dead = deadline.Text;
             sav = savings.Text;
             parsedSav = int.Parse(sav);
-            projectCategory = (string) cmbCategory.SelectedItem;
+            projectC = cmbCategory.Text;
 
             App.Current.Properties["projectName"] = n;
             App.Current.Properties["projectSponsor"] = s;
             App.Current.Properties["requestDate"] = d;
             App.Current.Properties["deadlineDate"] = dead;
             App.Current.Properties["savings"] = parsedSav;
+            App.Current.Properties["projectC"] = projectC;
 
             if (n.Length >= 5 && s.Length >= 5)
             {

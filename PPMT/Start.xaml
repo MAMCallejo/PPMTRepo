@@ -58,7 +58,7 @@
 
 
         <ComboBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Name="cmbCategory">
-            <ComboBoxItem Foreground="White" IsSelected="True">Transformative Growth</ComboBoxItem>
+            <ComboBoxItem Foreground="Black" IsSelected="True">Transformative Growth</ComboBoxItem>
             <ComboBoxItem Foreground="White">Quality of Talent</ComboBoxItem>
             <ComboBoxItem Foreground="White">Measurement and KPI</ComboBoxItem>
             <ComboBoxItem Foreground="White">ONA</ComboBoxItem>

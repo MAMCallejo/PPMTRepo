@@ -65,7 +65,8 @@ namespace PPMT
                 vendors = ((double)App.Current.Properties["vendors"]),
                 sponsorship = ((double)App.Current.Properties["sponsorship"]),
                 implementation = ((double)App.Current.Properties["implementation"]),
-                index = index
+                index = index,
+                projectCategory = ((string)App.Current.Properties["projectC"])
             };
 
             string docPath = Directory.GetCurrentDirectory();
