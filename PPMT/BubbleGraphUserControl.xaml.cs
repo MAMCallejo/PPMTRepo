@@ -289,13 +289,13 @@ namespace PPMT
         }
 
         //Creates a new project on the graph
-        public void AddNewProject(Project newProject, string projectCategory)
+        public void AddNewProject(Project newProject)
         {
 
             foreach (var series in SeriesCollection)
             {
 
-                if (series.Title.Equals("Other"))
+                if (series.Title.Equals(newProject.projectName))
                 {
 
                     var XCoord = calculateXCoord(newProject.resource, newProject.data, newProject.vendors, newProject.sponsorship, newProject.implementation);
