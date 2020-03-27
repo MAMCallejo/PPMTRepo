@@ -409,37 +409,37 @@ namespace PPMT
         //This is where all of the toggle buttons are in order. When the button state is changed to checked this should happen
         private void labelChecked(object sender, RoutedEventArgs e)
         {
-            
+            labelsToggle(labelN.IsChecked ?? false);
         }
 
         private void tGChecked(object sender, RoutedEventArgs e)
         {
-
+            categoriesToggle(tGN.IsChecked ?? true, "Transformative Growth");
         }
 
         private void qOTChecked(object sender, RoutedEventArgs e)
         {
-
+            categoriesToggle(qOTN.IsChecked ?? true, "Quality of Talen");
         }
 
         private void mAKChecked(object sender, RoutedEventArgs e)
         {
-
+            categoriesToggle(mAKN.IsChecked ?? true, "Measurement and KPI");
         }
 
         private void oNAChecked(object sender, RoutedEventArgs e)
         {
-
+            categoriesToggle(oNAN.IsChecked ?? true, "ONA");
         }
 
         private void cCChecked(object sender, RoutedEventArgs e)
         {
-
+            categoriesToggle(cCN.IsChecked ?? true, "Consolidation/Cost");
         }
 
         private void otherChecked(object sender, RoutedEventArgs e)
         {
-
+            categoriesToggle(otherN.IsChecked ?? true, "Other");
         }
 
         private void categoriesToggle(bool categoryToggled, string categoryName)
