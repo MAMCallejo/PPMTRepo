@@ -79,22 +79,9 @@ namespace PPMT
         {
             Menu.Children.RemoveRange(1 , Menu.Children.Count - 1);
 
-            //Dictionary<int, Project> SlideOutList = PPMT.BubbleGraphUserControl.BubbleGraph.JSONList;
-
             List<Project> SlideOutList = PPMT.BubbleGraphUserControl.BubbleGraph.JSONList;
 
             int length = SlideOutList.Count;
-
-            /*foreach(KeyValuePair<int, Project> entry in SlideOutList)
-            {
-                var projMenu = new List<SubItem>();
-
-                projMenu.Add(new SubItem(entry.Value));
-
-                var newProj = new ItemMenu(entry.Value.pName, projMenu, entry.Value.index);
-
-                Menu.Children.Add(new UserControlMenuItem(newProj));
-            }*/
 
             for (int i = 0; i < length; i++)
             {

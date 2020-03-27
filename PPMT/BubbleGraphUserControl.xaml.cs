@@ -445,6 +445,40 @@ namespace PPMT
         private void categoriesToggle(bool categoryToggled, string categoryName)
         {
 
+            // Show series:
+            if (categoryToggled)
+            {
+
+                foreach(ScatterSeries series in SeriesCollection)
+                {
+
+                    if (series.Title.Equals(categoryName))
+                    {
+
+                        series.Visibility = Visibility.Visible;
+
+                    }
+
+                }
+
+
+            } else // Hide Series:
+            {
+
+                foreach (ScatterSeries series in SeriesCollection)
+                {
+
+                    if (series.Title.Equals(categoryName))
+                    {
+
+                        series.Visibility = Visibility.Collapsed;
+
+                    }
+
+                }
+
+            }
+
 
 
         }

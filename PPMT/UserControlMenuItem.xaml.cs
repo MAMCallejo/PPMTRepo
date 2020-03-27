@@ -40,11 +40,6 @@ namespace PPMT
 
             
             MessageBox.Show("hsdhshd");
-            //MyDataItem = item.DataContext as MyDataItem;
-
-            /*DataTemplate dataTemplate = ListViewItemMenu.te;
-            string sponsor = (string)st.Children.spon.Text;
-            MessageBox.Show(sponsor);*/
         }
     }
 }

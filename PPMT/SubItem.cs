@@ -36,6 +36,8 @@ namespace PPMT
 
             implementation = "Implementation: " + p.implementation;
 
+            category = "Category: " + p.projectCategory;
+
             Screen = screen;
         }
 
@@ -53,6 +55,7 @@ namespace PPMT
         public string vendors { get; set; }
         public string sponsorship { get; set; }
         public string implementation { get; set; }
+        public string category { get; set; }
 
     }
 }

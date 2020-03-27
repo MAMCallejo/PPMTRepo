@@ -47,8 +47,6 @@ namespace PPMT
             App.Current.Properties["sponsorship"] = sponsorship;
             App.Current.Properties["implementation"] = implementation;
 
-            int index = PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.Count;
-
             Project newProj = new Project()
             {
                 pName = ((string)App.Current.Properties["projectName"]),
@@ -65,7 +63,6 @@ namespace PPMT
                 vendors = ((double)App.Current.Properties["vendors"]),
                 sponsorship = ((double)App.Current.Properties["sponsorship"]),
                 implementation = ((double)App.Current.Properties["implementation"]),
-                index = index,
                 projectCategory = ((string)App.Current.Properties["projectC"])
             };
 

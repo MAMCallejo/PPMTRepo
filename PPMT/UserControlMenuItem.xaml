@@ -30,6 +30,7 @@
                             <TextBlock Text="{Binding Path=vendors}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=sponsorship}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=implementation}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=category}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                         </StackPanel>
                     </DataTemplate>
                     </ListView.ItemTemplate>
