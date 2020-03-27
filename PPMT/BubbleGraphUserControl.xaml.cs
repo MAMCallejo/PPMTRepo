@@ -84,6 +84,12 @@ namespace PPMT
 
                     StrokeThickness = 2,
 
+                    Foreground = Brushes.White,
+
+                    FontSize = 15,
+
+                    FontWeight = FontWeights.Bold,
+
                 },
 
                 new ScatterSeries
@@ -106,6 +112,12 @@ namespace PPMT
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
                     StrokeThickness = 2,
+
+                    Foreground = Brushes.White,
+
+                    FontSize = 15,
+
+                    FontWeight = FontWeights.Bold,
 
                 },
 
@@ -130,6 +142,12 @@ namespace PPMT
 
                     StrokeThickness = 2,
 
+                    Foreground = Brushes.White,
+
+                    FontSize = 15,
+
+                    FontWeight = FontWeights.Bold,
+
                 },
 
                 new ScatterSeries
@@ -152,6 +170,12 @@ namespace PPMT
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
                     StrokeThickness = 2,
+
+                    Foreground = Brushes.White,
+
+                    FontSize = 15,
+
+                    FontWeight = FontWeights.Bold,
 
                 },
 
@@ -176,6 +200,12 @@ namespace PPMT
 
                     StrokeThickness = 2,
 
+                    Foreground = Brushes.White,
+
+                    FontSize = 15,
+
+                    FontWeight = FontWeights.Bold,
+
                 },
 
                 new ScatterSeries
@@ -198,6 +228,12 @@ namespace PPMT
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
                     StrokeThickness = 2,
+
+                    Foreground = Brushes.White,
+
+                    FontSize = 15,
+
+                    FontWeight = FontWeights.Bold,
 
                 }
 
@@ -409,11 +445,13 @@ namespace PPMT
         //This is where all of the toggle buttons are in order. When the button state is changed to checked this should happen
         private void labelChecked(object sender, RoutedEventArgs e)
         {
+
             labelsToggle(labelN.IsChecked ?? false);
         }
 
         private void tGChecked(object sender, RoutedEventArgs e)
         {
+
             categoriesToggle(tGN.IsChecked ?? true, "Transformative Growth");
         }
 
@@ -449,37 +487,44 @@ namespace PPMT
             if (categoryToggled)
             {
 
-                foreach(ScatterSeries series in SeriesCollection)
+                if (SeriesCollection != null)
                 {
 
-                    if (series.Title.Equals(categoryName))
+                    foreach (ScatterSeries series in SeriesCollection)
                     {
 
-                        series.Visibility = Visibility.Visible;
+                        if (series.Title.Equals(categoryName))
+                        {
+
+                            series.Visibility = Visibility.Visible;
+
+                        }
 
                     }
 
                 }
 
-
             } else // Hide Series:
             {
 
-                foreach (ScatterSeries series in SeriesCollection)
+                if (SeriesCollection != null)
                 {
 
-                    if (series.Title.Equals(categoryName))
+                    foreach (ScatterSeries series in SeriesCollection)
                     {
 
-                        series.Visibility = Visibility.Collapsed;
+                        if (series.Title.Equals(categoryName))
+                        {
+
+                            series.Visibility = Visibility.Collapsed;
+
+                        }
 
                     }
 
                 }
 
             }
-
-
 
         }
 
@@ -513,6 +558,15 @@ namespace PPMT
                 newTooltip.FontSize = 15;
 
                 newTooltip.FontWeight = FontWeights.Bold;
+
+                BubbleChart.DataTooltip = newTooltip;
+
+                foreach (ScatterSeries series in SeriesCollection)
+                {
+
+                    series.DataLabels = false;
+
+                }
 
             }
 

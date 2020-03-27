@@ -99,36 +99,36 @@
         
         <Label Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Show Labels</AccessText> </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="labelChecked" Name="labelN"></ToggleButton>
+        <ToggleButton Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Click="labelChecked" Name="labelN"></ToggleButton>
 
         <Label Grid.Column="4" Grid.Row="3" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Transformative Growth</AccessText>
         </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="tGChecked" Margin="0,20,0,0" IsChecked="True" Name="tGN"></ToggleButton>
+        <ToggleButton Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Click="tGChecked" Margin="0,20,0,0" IsChecked="True" Name="tGN"></ToggleButton>
 
         <Label Grid.Column="4" Grid.Row="4" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Quality of Talent</AccessText>
         </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="qOTChecked" Margin="0,20,0,0" IsChecked="True" Name="qOTN"></ToggleButton>
+        <ToggleButton Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Click="qOTChecked" Margin="0,20,0,0" IsChecked="True" Name="qOTN"></ToggleButton>
 
         <Label Grid.Column="4" Grid.Row="5" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Measurement and KPI</AccessText>
         </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="mAKChecked" Margin="0,20,0,0" IsChecked="True" Name="mAKN"></ToggleButton>
+        <ToggleButton Grid.Column="4" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Click="mAKChecked" Margin="0,20,0,0" IsChecked="True" Name="mAKN"></ToggleButton>
 
         <Label Grid.Column="4" Grid.Row="6" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">ONA</AccessText>
         </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="oNAChecked" IsChecked="True" Name="oNAN"></ToggleButton>
+        <ToggleButton Grid.Column="4" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Click="oNAChecked" IsChecked="True" Name="oNAN"></ToggleButton>
 
         <Label Grid.Column="4" Grid.Row="7" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Consolidation/Cost</AccessText>
         </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="cCChecked" Margin="0,20,0,0" IsChecked="True" Name="cCN"></ToggleButton>
+        <ToggleButton Grid.Column="4" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Click="cCChecked" Margin="0,20,0,0" IsChecked="True" Name="cCN"></ToggleButton>
 
         <Label Grid.Column="4" Grid.Row="8" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Other</AccessText>
         </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="otherChecked" IsChecked="True" Name="otherN"></ToggleButton>
+        <ToggleButton Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Click="otherChecked" IsChecked="True" Name="otherN"></ToggleButton>
     </Grid>
 </UserControl>
