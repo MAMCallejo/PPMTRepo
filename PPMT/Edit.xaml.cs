@@ -45,6 +45,18 @@ namespace PPMT
             //Creates project selection page if there is more than one project otherwise just do the normal constructor
             tempPage = new ProjectSelectionPage(bubbleProject);
 
+            tG.IsSelected = false;
+
+            qOT.IsSelected = false;
+
+            mAK.IsSelected = false;
+
+            oNA.IsSelected = false;
+
+            cC.IsSelected = false;
+
+            other.IsSelected = false;
+
             if (bubbleProject.Count > 1)
             {
                 edit = this;
@@ -62,7 +74,6 @@ namespace PPMT
                 edit = this;
                 tup = t;
 
-
                 val1.Value = project.value;
                 val2.Value = project.transformativeG;
                 val3.Value = project.hrpriority;
@@ -73,7 +84,52 @@ namespace PPMT
                 val8.Value = project.sponsorship;
                 val9.Value = project.implementation;
                 
+                switch(project.projectCategory)
+                {
 
+                    case "Transformative Growth":
+
+                        tG.IsSelected = true;
+
+                        break;
+
+                    case "Quality of Talent":
+
+                        qOT.IsSelected = true;
+
+                        break;
+
+                    case "Measurement and KPI":
+
+                        mAK.IsSelected = true;
+
+                        break;
+
+                    case "ONA":
+
+                        oNA.IsSelected = true;
+
+                        break;
+
+                    case "Consolidation/Cost":
+
+                        cC.IsSelected = true;
+
+                        break;
+
+                    case "Other":
+
+                        other.IsSelected = true;
+
+                        break;
+
+                    default:
+
+                        tG.IsSelected = true;
+
+                        break;
+
+                }
                 
             }
 
@@ -98,6 +154,53 @@ namespace PPMT
             val8.Value = proj.sponsorship;
             val9.Value = proj.implementation;
 
+            switch (project.projectCategory)
+            {
+
+                case "Transformative Growth":
+
+                    tG.IsSelected = true;
+
+                    break;
+
+                case "Quality of Talent":
+
+                    qOT.IsSelected = true;
+
+                    break;
+
+                case "Measurement and KPI":
+
+                    mAK.IsSelected = true;
+
+                    break;
+
+                case "ONA":
+
+                    oNA.IsSelected = true;
+
+                    break;
+
+                case "Consolidation/Cost":
+
+                    cC.IsSelected = true;
+
+                    break;
+
+                case "Other":
+
+                    other.IsSelected = true;
+
+                    break;
+
+                default:
+
+                    tG.IsSelected = true;
+
+                    break;
+
+            }
+
 
             Console.WriteLine(proj.pName);
         }
@@ -118,6 +221,38 @@ namespace PPMT
             }
 
             PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
+
+            if (tG.IsSelected)
+            {
+
+                project.projectCategory = "Transformative Growth";
+
+            } else if (qOT.IsSelected)
+            {
+
+                project.projectCategory = "Quality of Talent";
+
+            } else if (mAK.IsSelected)
+            {
+
+                project.projectCategory = "Measurement and KPI";
+
+            } else if (oNA.IsSelected)
+            {
+
+                project.projectCategory = "ONA";
+
+            } else if (cC.IsSelected)
+            {
+
+                project.projectCategory = "Consolidation/Cost";
+
+            } else if (other.IsSelected)
+            {
+
+                project.projectCategory = "Other";
+
+            }
 
             project.pName = n.Text;
 
