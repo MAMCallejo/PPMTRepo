@@ -408,6 +408,42 @@ namespace PPMT
 
         }
 
+        //This is where all of the toggle buttons are in order. When the button state is changed to checked this should happen
+        private void labelChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void tGChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void qOTChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mAKChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void oNAChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cCChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void otherChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void categoriesToggle(bool categoryToggled, string categoryName)
         {
 
