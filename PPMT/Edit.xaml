@@ -9,7 +9,6 @@
     <ScrollViewer VerticalScrollBarVisibility="Visible">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="55"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -20,7 +19,13 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -32,7 +37,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Border Grid.RowSpan="12" Grid.ColumnSpan="5">
+            <Border Grid.RowSpan="17" Grid.ColumnSpan="5">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#2c7b7f" Offset="0.0"/>
@@ -41,107 +46,122 @@
                 </Border.Background>
             </Border>
 
-            <TextBox Grid.Column="1" Grid.Row="0" Name="n" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontFamily="Gotham Book"></TextBox>
-            <Label Content="Change the Name of the Project" Grid.Column="2" Foreground="White" FontFamily="Gotham Book" FontSize="15" VerticalAlignment="Center"></Label>
-            
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="ParentPanel" Grid.Column="1" Grid.Row="1">
-                <Label Name ="Resource" Content="Resources" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
+            <Label Content="Project Name" Grid.Row="1" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+            <TextBox Name="name" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" MaxLength="100"  Height="25" FontSize="13" Foreground="White"/>
+
+            <Label Content="Project Sponsor" Grid.Row="2" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+            <TextBox Name="sponsor" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" MaxLength="100" Height="25" VerticalAlignment="Center" FontSize="13" Foreground="White"/>
+
+            <Label Content="Request Date" Grid.Row="3" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+            <DatePicker Name="date" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="25" Foreground="White"/>
+
+            <Label Content="Completion Deadline" Grid.Row="4" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+            <DatePicker Name="deadline" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="25" Foreground="White"/>
+
+            <Label Grid.Row="5" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center" Margin="0,0,0,15">
+                <AccessText TextWrapping="Wrap">Revenue Impact or Estimated Savings (USD)</AccessText>
+            </Label>
+            <TextBox Name="savings" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" PreviewTextInput="MaskNumericInput"
+                   DataObject.Pasting="MaskNumericPaste" Height="25" VerticalAlignment="Center" FontSize="13" Foreground="White" Margin="0,0,0,15"/>
+
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="ParentPanel" Grid.Column="1" Grid.Row="6">
+                <Label Name ="Value" Content="Value" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val1" />
                 <Label Name ="one" Content="{Binding ElementName=val1, Path=Value, UpdateSourceTrigger=PropertyChanged}" FontFamily="Gotham Book" Foreground="White" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
                 Project Delivers Financial Value* <LineBreak/> 
                 *Financial value is validated as increased revenue, cost avoidance or productivity enhancement
             </TextBlock>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="SonPanel" Grid.Column="1" Grid.Row="2">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="SonPanel" Grid.Column="1" Grid.Row="7">
                 <Label Name ="transformativeG" Content="Transformative Growth" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val2" />
                 <Label Name ="two" Content="{Binding ElementName=val2, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
                  Project is aligned to the strategic priorities of the Transormative Growth Plan*, and the 2020 Operating Priorities <LineBreak/>
                  *Expanded customer access, Improved customer value, Increased investments in growth and technology
             </TextBlock>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="DaughterPanel" Grid.Column="1" Grid.Row="3">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="DaughterPanel" Grid.Column="1" Grid.Row="8">
                 <Label Name ="HRPriority" Content="HR Priority" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val3" />
                 <Label Name = "three" Content="{Binding ElementName=val3, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
                     Project is aligned to HR Priorities* <LineBreak/> 
                     *Lead people plans for Transformative Growth, Expand collective impact of Employability and Good Jobs, Orchestrate talent strategies across our global footprint, Contemporize employee total value offerings
             </TextBlock>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="OtherPanel" Grid.Column="1" Grid.Row="4">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="OtherPanel" Grid.Column="1" Grid.Row="9">
                 <Label Name ="Risk" Content="Risk" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val4" />
                 <Label Name = "four" Content="{Binding ElementName=val4, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
             Project heightens Riks* to the enterprise <LineBreak/>
             *Brand reputation, privacy, ethics &amp; market perception
             </TextBlock>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="ParentPanel2" Grid.Column="1" Grid.Row="5">
-                <Label Name ="Resource2" Content="Resources" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="ParentPanel2" Grid.Column="1" Grid.Row="10">
+                <Label Name ="Resource" Content="Resources" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15,0,15,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val5" />
                 <Label Name ="five" Content="{Binding ElementName=val5, Path=Value, UpdateSourceTrigger=PropertyChanged}" FontFamily="Gotham Book" Foreground="White" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
                 There are sufficient resources* at the required level available to deliver the projecct <LineBreak/> 
                 *Resources (employees) in the People Analytics function
             </TextBlock>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="SonPanel2" Grid.Column="1" Grid.Row="6">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="SonPanel2" Grid.Column="1" Grid.Row="11">
                 <Label Name ="Data" Content="Data" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val6" />
                 <Label Name ="six" Content="{Binding ElementName=val6, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
                    Data is available with the required level of quality to deliver the project
             </TextBlock>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="DaughterPanel2" Grid.Column="1" Grid.Row="7">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="DaughterPanel2" Grid.Column="1" Grid.Row="12">
                 <Label Name ="Vendors" Content="Vendors" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val7" />
                 <Label Name = "seven" Content="{Binding ElementName=val7, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
                     External vendors* and/or In-house technology are needed to deliver elements of the project <LineBreak/> 
                     *An external vendor could be any firm delivering resource technology, data or any other service/product to the People Analytics function
             </TextBlock>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="OtherPanel2" Grid.Column="1" Grid.Row="8">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="OtherPanel2" Grid.Column="1" Grid.Row="13">
                 <Label Name ="Sponsorship" Content="Sponsorship" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0"  Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val8" />
                 <Label Name = "eight" Content="{Binding ElementName=val8, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="13" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
                  Market-Facing Businesses and/or AOR buy into the project through at least one Officer sponsoring the project
             </TextBlock>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="OtherOtherPanel2" Grid.Column="1" Grid.Row="9">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Name="OtherOtherPanel2" Grid.Column="1" Grid.Row="14">
                 <Label Name ="Implementation" Content="Implementation" Foreground="White" HorizontalAlignment="Center" FontFamily="Gotham Book"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,0,10,0" Maximum="4" Minimum="1" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="val9" />
                 <Label Name = "nine" Content="{Binding ElementName=val9, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="Gotham Book" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="9" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
+            <TextBlock Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="9" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
                  The project can be implemented across part of or all of Allstate
             </TextBlock>
 
-            <Label Content="Choose the Category" Grid.Row="10" Grid.Column="2" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
-            <ComboBox Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="1" Name="cmbCategory" Margin="10,0,10,0" Foreground="White" FontSize="15">
+            <Label Content="Choose the Category" Grid.Row="15" Grid.Column="2" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="1" Name="cmbCategory" Margin="10,0,10,0" Foreground="White" FontSize="15">
                 <ComboBoxItem Foreground="#2c7b7f" Name="tG" FontSize="15">Transformative Growth</ComboBoxItem>
                 <ComboBoxItem Foreground="#2c7b7f" Name="qOT" FontSize="15">Quality of Talent</ComboBoxItem>
                 <ComboBoxItem Foreground="#2c7b7f" Name="mAK" FontSize="15">Measurement and KPI</ComboBoxItem>
@@ -150,8 +170,8 @@
                 <ComboBoxItem Foreground="#2c7b7f" Name="other" FontSize="15">Other</ComboBoxItem>
             </ComboBox>
 
-            <Button Grid.Column="3" Grid.Row="11" HorizontalAlignment="right" VerticalAlignment="Bottom" Click="saveButtonClicked" Foreground="#2b3559">Save</Button>
-            <Button Grid.Column="1" Grid.Row="11" HorizontalAlignment="left" VerticalAlignment="Bottom" Click="deleteButtonClicked" Foreground="#2b3559">Delete</Button>
+            <Button Grid.Column="3" Grid.Row="16" HorizontalAlignment="right" VerticalAlignment="Bottom" Click="saveButtonClicked" Foreground="#2b3559" Margin="0,15,0,15">Save</Button>
+            <Button Grid.Column="1" Grid.Row="16" HorizontalAlignment="left" VerticalAlignment="Bottom" Click="deleteButtonClicked" Foreground="#2b3559" Margin="0,15,0,15">Delete</Button>
 
             
             <!--Controls the page that is on top-->
