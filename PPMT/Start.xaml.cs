@@ -29,8 +29,8 @@ namespace PPMT
         string s;
         string d;
         string dead;
-        string sav;
-        int parsedSav;
+        string sav = "0";
+        ulong parsedSav;
         string projectC;
 
         ImpactCriteria pg = new ImpactCriteria();
@@ -41,33 +41,71 @@ namespace PPMT
             s = sponsor.Text;
             d = date.Text;
             dead = deadline.Text;
-            dead = deadline.Text;
-            sav = savings.Text;
-            parsedSav = int.Parse(sav);
+            sav = savings.Text;           
             projectC = cmbCategory.Text;
 
-            App.Current.Properties["projectName"] = n;
-            App.Current.Properties["projectSponsor"] = s;
-            App.Current.Properties["requestDate"] = d;
-            App.Current.Properties["deadlineDate"] = dead;
-            App.Current.Properties["savings"] = parsedSav;
-            App.Current.Properties["projectC"] = projectC;
+            if (sav == "" && n == "" && s == "")
+            {
+                MessageBox.Show("Please fill out the following: Project Name, Project Sponsor, Savings");
+            }
+            else if(sav == "" && n == "")
+            {
+                MessageBox.Show("Please fill out the following: Project Name, Savings");
+            }
+            else if(sav == "" && s == "")
+            {
+                MessageBox.Show("Please fill out the following: Project Sponsor, Savings");
+            }
+            else if(n == "" && s == "")
+            {
+                MessageBox.Show("Please fill out the following: Project Name, Project Sponsor");
+            }
+            else if (sav == "")
+            {
+                MessageBox.Show("Please fill out the following: Savings");
+            }
+            else if (n == "")
+            {
+                MessageBox.Show("Please fill out the following: Project Name");
+            }
+            else if (s == "")
+            {
+                MessageBox.Show("Please fill out the following: Project Sponsor");
+            }
+            else
+            {
 
-            if (n.Length >= 5 && s.Length >= 5)
-            {
-                this.NavigationService.Navigate(pg);
-            }
-            else if (s.Length < 5 && n.Length < 5)
-            {
-                MessageBox.Show("The minimum length for the Project Sponsor and Project Name must include at least 5 characters");
-            }
-            else if (n.Length < 5)
-            {
-                MessageBox.Show("The minimum length for the Project Name must include at least 5 characters");
-            }
-            else if (s.Length < 5)
-            {
-                MessageBox.Show("The minimum length for the Project Sponsor must include at least 5 characters");
+
+                
+                App.Current.Properties["projectName"] = n;
+                App.Current.Properties["projectSponsor"] = s;
+                App.Current.Properties["requestDate"] = d;
+                App.Current.Properties["deadlineDate"] = dead;
+                App.Current.Properties["savings"] = parsedSav;
+                App.Current.Properties["projectC"] = projectC;
+
+                if (n.Length >= 5 && s.Length >= 5 && sav.Length <= 19)
+                {
+                    parsedSav = ulong.Parse(sav);
+                    this.NavigationService.Navigate(pg);
+                }
+                else if (s.Length < 5 && n.Length < 5)
+                {
+                    MessageBox.Show("The minimum length for the Project Sponsor and Project Name must include at least 5 characters");
+                }
+                else if (n.Length < 5)
+                {
+                    MessageBox.Show("The minimum length for the Project Name must include at least 5 characters");
+                }
+                else if (s.Length < 5)
+                {
+                    MessageBox.Show("The minimum length for the Project Sponsor must include at least 5 characters");
+                }
+                else if(sav.Length > 19)
+                {
+                    MessageBox.Show("The Savings value is too high");
+                }
+                
             }
         }
 
