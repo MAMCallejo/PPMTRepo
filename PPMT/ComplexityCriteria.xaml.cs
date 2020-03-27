@@ -55,7 +55,7 @@ namespace PPMT
                 pSponsor = ((string)App.Current.Properties["projectSponsor"]),
                 rDate = ((string)App.Current.Properties["requestDate"]),
                 pDeadline = ((string)App.Current.Properties["deadlineDate"]),
-                pSavings = ((int)App.Current.Properties["savings"]),
+                pSavings = ((ulong)App.Current.Properties["savings"]),
                 value = ((double)App.Current.Properties["value"]),
                 transformativeG = ((double)App.Current.Properties["transformativeG"]),
                 hrpriority = ((double)App.Current.Properties["hrpriority"]),
@@ -65,7 +65,6 @@ namespace PPMT
                 vendors = ((double)App.Current.Properties["vendors"]),
                 sponsorship = ((double)App.Current.Properties["sponsorship"]),
                 implementation = ((double)App.Current.Properties["implementation"]),
-                index = index,
                 projectCategory = ((string)App.Current.Properties["projectC"])
             };
 
