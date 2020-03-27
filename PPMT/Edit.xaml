@@ -142,12 +142,12 @@
 
             <Label Content="Choose the Category" Grid.Row="10" Grid.Column="2" Foreground="White" FontSize="17" VerticalAlignment="Center"/>
             <ComboBox Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="1" Name="cmbCategory" Margin="10,0,10,0" Foreground="White" FontSize="15">
-                <ComboBoxItem Foreground="#2c7b7f" IsSelected="True" FontSize="15">Transformative Growth</ComboBoxItem>
-                <ComboBoxItem Foreground="#2c7b7f" FontSize="15">Quality of Talent</ComboBoxItem>
-                <ComboBoxItem Foreground="#2c7b7f" FontSize="15">Measurement and KPI</ComboBoxItem>
-                <ComboBoxItem Foreground="#2c7b7f" FontSize="15">ONA</ComboBoxItem>
-                <ComboBoxItem Foreground="#2c7b7f" FontSize="15">Consolidation/Cost</ComboBoxItem>
-                <ComboBoxItem Foreground="#2c7b7f" FontSize="15">Other</ComboBoxItem>
+                <ComboBoxItem Foreground="#2c7b7f" Name="tG" FontSize="15">Transformative Growth</ComboBoxItem>
+                <ComboBoxItem Foreground="#2c7b7f" Name="qOT" FontSize="15">Quality of Talent</ComboBoxItem>
+                <ComboBoxItem Foreground="#2c7b7f" Name="mAK" FontSize="15">Measurement and KPI</ComboBoxItem>
+                <ComboBoxItem Foreground="#2c7b7f" Name="oNA" FontSize="15">ONA</ComboBoxItem>
+                <ComboBoxItem Foreground="#2c7b7f" Name="cC" FontSize="15">Consolidation/Cost</ComboBoxItem>
+                <ComboBoxItem Foreground="#2c7b7f" Name="other" FontSize="15">Other</ComboBoxItem>
             </ComboBox>
 
             <Button Grid.Column="3" Grid.Row="11" HorizontalAlignment="right" VerticalAlignment="Bottom" Click="saveButtonClicked" Foreground="#2b3559">Save</Button>

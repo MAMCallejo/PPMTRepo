@@ -62,6 +62,7 @@ namespace PPMT
                 edit = this;
                 tup = t;
 
+
                 val1.Value = project.value;
                 val2.Value = project.transformativeG;
                 val3.Value = project.hrpriority;
@@ -71,7 +72,9 @@ namespace PPMT
                 val7.Value = project.vendors;
                 val8.Value = project.sponsorship;
                 val9.Value = project.implementation;
+                
 
+                
             }
 
         }
