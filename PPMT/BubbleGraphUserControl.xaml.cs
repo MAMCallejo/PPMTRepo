@@ -50,8 +50,6 @@ namespace PPMT
         {
             InitializeComponent();
 
-            labelsToggle();
-
             BubbleGraph = this;
 
             BubbleLabels = new Dictionary<Tuple<double, double>, string>();
