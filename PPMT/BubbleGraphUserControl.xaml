@@ -9,12 +9,19 @@
              d:DesignHeight="600" d:DesignWidth="1000"
              VerticalAlignment="Stretch"
              HorizontalAlignment="Stretch"
-            
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              Background="Transparent">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
@@ -22,10 +29,10 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="107"/>
         </Grid.ColumnDefinitions>
 
-        <Border CornerRadius="10" Grid.RowSpan="2" Grid.ColumnSpan="4">
+        <Border CornerRadius="10" Grid.RowSpan="9" Grid.ColumnSpan="4">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#2c7b7f" Offset="0.0"/>
@@ -49,8 +56,8 @@
         
         <Rectangle Panel.ZIndex="0" Grid.Row="0" Grid.ColumnSpan="4" Fill="White"/>
 
-        <lvc:CartesianChart Margin="20" Grid.Row="1" 
-                            Grid.ColumnSpan="4" 
+        <lvc:CartesianChart Margin="20" Grid.Row="1" Grid.RowSpan="8"
+                            Grid.ColumnSpan="3" 
                             Series="{Binding SeriesCollection}"
                             DataClick="ChartOnDataClick"
                             Name="BubbleChart">
@@ -79,22 +86,49 @@
             </lvc:CartesianChart.DataTooltip>
 
         </lvc:CartesianChart>
+
+        <!--Buttons for display toggles and info button-->
+
+        <Button Grid.Column="4" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" VerticalAlignment="Center">
+            <materialDesign:PackIcon Kind="InformationCircleOutline">
+                <materialDesign:PackIcon.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </materialDesign:PackIcon.LayoutTransform>
+            </materialDesign:PackIcon>
+        </Button>
         
-        <!--
-        <Popup Name="MyPopup"
+        <Label Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+            <AccessText TextWrapping="Wrap">Show Labels</AccessText> </Label>
+        <ToggleButton Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="labelChecked"></ToggleButton>
 
-               Placement="Mouse"
+        <Label Grid.Column="4" Grid.Row="3" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+            <AccessText TextWrapping="Wrap">Transformative Growth</AccessText>
+        </Label>
+        <ToggleButton Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="tGChecked"></ToggleButton>
 
-               HorizontalOffset="-100"
+        <Label Grid.Column="4" Grid.Row="4" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+            <AccessText TextWrapping="Wrap">Quality of Talent</AccessText>
+        </Label>
+        <ToggleButton Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="qOTChecked"></ToggleButton>
 
-               VerticalOffset="-100"
+        <Label Grid.Column="4" Grid.Row="5" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+            <AccessText TextWrapping="Wrap">Measurement and KPI</AccessText>
+        </Label>
+        <ToggleButton Grid.Column="4" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="mAKChecked"></ToggleButton>
 
-               AllowsTransparency="True">
+        <Label Grid.Column="4" Grid.Row="6" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+            <AccessText TextWrapping="Wrap">ONA</AccessText>
+        </Label>
+        <ToggleButton Grid.Column="4" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="oNAChecked"></ToggleButton>
 
-            <Grid>
-                <Label>hi</Label>
-            </Grid>
-        </Popup> -->
-        
+        <Label Grid.Column="4" Grid.Row="7" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+            <AccessText TextWrapping="Wrap">Consolidation/Cost</AccessText>
+        </Label>
+        <ToggleButton Grid.Column="4" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="cCChecked"></ToggleButton>
+
+        <Label Grid.Column="4" Grid.Row="8" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+            <AccessText TextWrapping="Wrap">Other</AccessText>
+        </Label>
+        <ToggleButton Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="otherChecked"></ToggleButton>
     </Grid>
 </UserControl>

@@ -48,9 +48,7 @@
                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
                    Background="#2c7b7f" Click="newProject" Content="New Project">
                 </Button>
-                
-                
-                
+
             </StackPanel>
             
         </ScrollViewer>
