@@ -73,8 +73,6 @@ namespace PPMT
                 val8.Value = project.sponsorship;
                 val9.Value = project.implementation;
                 
-
-                
             }
 
         }
