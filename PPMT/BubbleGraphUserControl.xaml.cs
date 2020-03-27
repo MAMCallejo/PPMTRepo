@@ -50,6 +50,8 @@ namespace PPMT
         {
             InitializeComponent();
 
+            labelsToggle();
+
             BubbleGraph = this;
 
             BubbleLabels = new Dictionary<Tuple<double, double>, string>();
@@ -62,6 +64,7 @@ namespace PPMT
 
             SeriesCollection = new SeriesCollection
             {
+
                 new ScatterSeries
                 {
 
@@ -383,8 +386,6 @@ namespace PPMT
 
                         JSONList.Add(project);
 
-                        //JSONList[project.index] = project;
-
                     }
 
                 }
@@ -396,7 +397,6 @@ namespace PPMT
         //Opens edit window when bubble is clicked
         private void ChartOnDataClick(object sender, ChartPoint chartPoint)
         {
-           // MainWindow.mainAccess.slideControls();
             
             var bubbleTuple = new Tuple<double, double>(chartPoint.X, chartPoint.Y);
 
@@ -443,5 +443,48 @@ namespace PPMT
         {
 
         }
+
+        private void categoriesToggle(bool categoryToggled, string categoryName)
+        {
+
+
+
+        }
+
+        private void labelsToggle(bool labelsToggled)
+        {
+
+            // Show Labels.
+            if (labelsToggled)
+            {
+
+                BubbleChart.DataTooltip = null;
+
+                foreach (ScatterSeries series in SeriesCollection)
+                {
+
+                    series.DataLabels = true;
+
+                }
+
+            } else // Hide Labels.
+            {
+
+                DefaultTooltip newTooltip = new DefaultTooltip();
+
+                newTooltip.ShowSeries = false;
+
+                newTooltip.Background = Brushes.DimGray;
+
+                newTooltip.Foreground = Brushes.White;
+
+                newTooltip.FontSize = 15;
+
+                newTooltip.FontWeight = FontWeights.Bold;
+
+            }
+
+        }
+
     }
 }

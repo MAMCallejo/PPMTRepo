@@ -59,7 +59,8 @@
         <lvc:CartesianChart Margin="20" Grid.Row="1" Grid.RowSpan="8"
                             Grid.ColumnSpan="3" 
                             Series="{Binding SeriesCollection}"
-                            DataClick="ChartOnDataClick">
+                            DataClick="ChartOnDataClick"
+                            Name="BubbleChart">
             <lvc:CartesianChart.AxisY>
 
                 <lvc:Axis ShowLabels="True" Title="Impact" Foreground="White" FontSize="17" MaxValue="4" MinValue="1">
