@@ -42,8 +42,6 @@ namespace PPMT
 
         public Dictionary<Tuple<double, double>, ArrayList> BubbleList;
 
-        //public Dictionary<int, Project> JSONList;
-
         public List<Project> JSONList;
 
         public static BubbleGraphUserControl BubbleGraph;
@@ -234,63 +232,47 @@ namespace PPMT
 
         }
 
-        public void editProject(ScatterPoint oldBubble, Tuple<double, double> t, Project project)
+        public void deleteProject(ScatterPoint oldBubble, Tuple<double, double> t, Project project)
         {
-
-            var XCoord = calculateXCoord(project.resource, project.data, project.vendors, project.sponsorship, project.implementation);
-
-            var YCoord = calculateYCoord(project.value, project.transformativeG, project.hrpriority, project.risk);
-
-            var newBubble = new ScatterPoint(XCoord, YCoord, project.value);
-
-            var newTuple = new Tuple<double, double>(XCoord, YCoord);
-
-            string newLabel = project.pName;
-
-            if(BubbleList[t].Count == 1)
-            {
-                BubbleList.Remove(t);
-            }
-            else
-            {
-                int count = 0;
-                foreach(Project bubble in BubbleList[t])
-                {
-                    if(bubble.pName == project.pName)
-                    {
-                        BubbleList[t].RemoveAt(count);
-                    }
-                    count++;
-                }
-            }
-
-           // BubbleList.Remove(t);
 
             BubbleLabels.Remove(t);
 
-            BubbleLabels.Add(newTuple, newLabel);
-
-            ArrayList listOfProjects = new ArrayList();
-
-            listOfProjects.Add(project);
-
-            BubbleList.Add(newTuple, listOfProjects);
-
-            foreach (var series in SeriesCollection)
+            if (BubbleList[t].Count == 1)
             {
 
-                if (series.Title.Equals(project.projectCategory))
+                BubbleList.Remove(t);
+
+            }
+            else
+            {
+
+                string newLabel = "";
+
+                int indexToRemove = 0;
+
+                for (int i = 0; i < BubbleList[t].Count; i++)
                 {
 
-                   for (int i = 0; i < series.Values.Count; i++)
+                    Project bubble = (Project) BubbleList[t][i];
+
+                    if (bubble.pName == project.pName)
                     {
 
-                        ScatterPoint seriesValue = (ScatterPoint) series.Values[i];
+                        indexToRemove = i;
 
-                        if (seriesValue.X == oldBubble.X && seriesValue.Y == oldBubble.Y && seriesValue.Weight == oldBubble.Weight)
+                    } else
+                    {
+
+                        if (newLabel.Equals(""))
                         {
 
-                            series.Values[i] = newBubble;
+                            newLabel = bubble.pName;
+
+                        }
+                        else
+                        {
+
+                            newLabel = newLabel + Environment.NewLine + bubble.pName;
 
                         }
 
@@ -298,14 +280,11 @@ namespace PPMT
 
                 }
 
+                BubbleList[t].RemoveAt(indexToRemove);
+
+                BubbleLabels.Add(t, newLabel);
+
             }
-
-        }
-
-        public void deleteProject(ScatterPoint oldBubble, Tuple<double, double> t, Project project)
-        {
-
-            BubbleList.Remove(t);
 
             foreach (var series in SeriesCollection)
             {
@@ -316,7 +295,7 @@ namespace PPMT
                     for (int i = 0; i < series.Values.Count; i++)
                     {
 
-                        ScatterPoint seriesValue = (ScatterPoint) series.Values[i];
+                        ScatterPoint seriesValue = (ScatterPoint)series.Values[i];
 
                         if (seriesValue.X == oldBubble.X && seriesValue.Y == oldBubble.Y && seriesValue.Weight == oldBubble.Weight)
                         {
@@ -330,7 +309,7 @@ namespace PPMT
                 }
 
             }
-           
+
         }
 
         //Creates a new project on the graph
@@ -360,11 +339,7 @@ namespace PPMT
 
                         BubbleLabels[newTuple] = oldLabel + Environment.NewLine + newLabel;
 
-                        ArrayList listOfProjects = (ArrayList) BubbleList[newTuple];
-
-                        listOfProjects.Add(newProject);
-
-                        BubbleList[newTuple] = listOfProjects;
+                        BubbleList[newTuple].Add(newProject);
 
                     }
                     else
@@ -427,23 +402,10 @@ namespace PPMT
 
             ArrayList bubbleProj = (ArrayList)BubbleList[bubbleTuple];
 
-            Project primaryProject = (Project) bubbleProj[0];
+            Edit subWindow = new Edit(bubbleTuple, bubbleProj);
 
-            int index = 0;
-
-            for(int i = 0; i < JSONList.Count; i++)
-            {
-                if(JSONList[i].pName == primaryProject.pName)
-                {
-                    index = i;
-                    break;
-                }
-            }
-
-            Edit subWindow = new Edit(index, bubbleTuple, primaryProject, bubbleProj);
             subWindow.Show();
 
-            Console.WriteLine("This is the project you clicked on:" + primaryProject.pName);
         }
     }
 }

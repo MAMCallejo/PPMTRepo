@@ -29,8 +29,6 @@ namespace PPMT
     {
         public static Edit edit;
 
-        int index;
-
         Tuple<double, double> tup;
 
         Project project;
@@ -39,12 +37,10 @@ namespace PPMT
 
         ProjectSelectionPage tempPage;
 
-
-
-        public Edit(int i, Tuple<double, double> t, Project proj, ArrayList bubbleProject)
+        public Edit(Tuple<double, double> t, ArrayList bubbleProject)
         {
-            InitializeComponent();
 
+            InitializeComponent();
 
             //Creates project selection page if there is more than one project otherwise just do the normal constructor
             tempPage = new ProjectSelectionPage(bubbleProject);
@@ -52,29 +48,29 @@ namespace PPMT
             if (bubbleProject.Count > 1)
             {
                 edit = this;
-                index = i;
                 tup = t;
                 Main.Content = tempPage;
             }
             else
             {
-                oldBubble = new ScatterPoint(t.Item1, t.Item2, proj.value);
 
-                n.Text = proj.pName;
+                project = (Project) bubbleProject[0];
+
+                oldBubble = new ScatterPoint(t.Item1, t.Item2, project.value);
+
+                n.Text = project.pName;
                 edit = this;
-                index = i;
                 tup = t;
-                project = proj;
 
-                val1.Value = proj.value;
-                val2.Value = proj.transformativeG;
-                val3.Value = proj.hrpriority;
-                val4.Value = proj.risk;
-                val5.Value = proj.resource;
-                val6.Value = proj.data;
-                val7.Value = proj.vendors;
-                val8.Value = proj.sponsorship;
-                val9.Value = proj.implementation;
+                val1.Value = project.value;
+                val2.Value = project.transformativeG;
+                val3.Value = project.hrpriority;
+                val4.Value = project.risk;
+                val5.Value = project.resource;
+                val6.Value = project.data;
+                val7.Value = project.vendors;
+                val8.Value = project.sponsorship;
+                val9.Value = project.implementation;
 
             }
 
@@ -106,6 +102,20 @@ namespace PPMT
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
+
+            int index = 0;
+
+            for (int i = 0; i < PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.Count; i++)
+            {
+                if (PPMT.BubbleGraphUserControl.BubbleGraph.JSONList[i].pName == project.pName)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
+
             project.pName = n.Text;
 
             project.value = val1.Value;
@@ -126,6 +136,8 @@ namespace PPMT
 
             project.implementation = val9.Value;
 
+            PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(project);
+
             PPMT.BubbleGraphUserControl.BubbleGraph.JSONList[index] = project;
 
             PPMT.MainWindow.mainAccess.createSlideProj();
@@ -136,15 +148,27 @@ namespace PPMT
 
             File.WriteAllText((System.IO.Path.Combine(docPath, "projects.json")), convertedJson);
 
-            PPMT.BubbleGraphUserControl.BubbleGraph.editProject(oldBubble, tup, project);
-
             edit.Close();
         }
 
         private void deleteButtonClicked(object sender, RoutedEventArgs e)
         {
-            PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.RemoveAt(index);
+
+            int index = 0;
+
+            for (int i = 0; i < PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.Count; i++)
+            {
+                if (PPMT.BubbleGraphUserControl.BubbleGraph.JSONList[i].pName == project.pName)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
             PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
+
+            PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.RemoveAt(index);
+
             PPMT.MainWindow.mainAccess.createSlideProj();
 
             string docPath = Directory.GetCurrentDirectory();
@@ -152,7 +176,9 @@ namespace PPMT
             string convertedJson = JsonConvert.SerializeObject(PPMT.BubbleGraphUserControl.BubbleGraph.JSONList, Formatting.Indented);
 
             File.WriteAllText((System.IO.Path.Combine(docPath, "projects.json")), convertedJson);
+
             edit.Close();
+
         }
 
     }
