@@ -884,7 +884,8 @@ namespace PPMT
 
         private void infoClicked(object sender, RoutedEventArgs e)
         {
-
+            infoWindow iwin = new infoWindow();
+            iwin.Show();
         }
     }
 }
