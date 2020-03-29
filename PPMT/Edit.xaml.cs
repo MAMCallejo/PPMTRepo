@@ -79,8 +79,8 @@ namespace PPMT
                 tup = t;
 
                 val1.Value = project.value;
-                val2.Value = project.transformativeG;
-                val3.Value = project.hrpriority;
+                val2.Value = project.strategicA;
+                //val3.Value = project.hrpriority;
                 val4.Value = project.risk;
                 val5.Value = project.resource;
                 val6.Value = project.data;
@@ -153,8 +153,8 @@ namespace PPMT
             project = proj;
 
             val1.Value = proj.value;
-            val2.Value = proj.transformativeG;
-            val3.Value = proj.hrpriority;
+            val2.Value = proj.strategicA;
+            //val3.Value = proj.hrpriority;
             val4.Value = proj.risk;
             val5.Value = proj.resource;
             val6.Value = proj.data;
@@ -328,9 +328,9 @@ namespace PPMT
 
                     project.value = val1.Value;
 
-                    project.transformativeG = val2.Value;
+                    project.strategicA = val2.Value;
 
-                    project.hrpriority = val3.Value;
+                    //project.hrpriority = val3.Value;
 
                     project.risk = val4.Value;
 

@@ -33,13 +33,5 @@ namespace PPMT
             this.DataContext = itemMenu;
         }
 
-        private void stackTapped(object sender, RoutedEventArgs e)
-        {
-            ListViewItem item = sender as ListViewItem;
-            if (item == null) return;
-
-            
-            MessageBox.Show("hsdhshd");
-        }
     }
 }
