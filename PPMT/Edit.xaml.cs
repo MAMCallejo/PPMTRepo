@@ -265,10 +265,14 @@ namespace PPMT
 
                     PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
 
+                    bool categoryToggled = true;
+
                     if (tG.IsSelected)
                     {
 
                         project.projectCategory = "Transformative Growth";
+
+                        categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.tGN.IsChecked ?? true;
 
                     }
                     else if (qOT.IsSelected)
@@ -276,11 +280,15 @@ namespace PPMT
 
                         project.projectCategory = "Quality of Talent";
 
+                        categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.qOTN.IsChecked ?? true;
+
                     }
                     else if (mAK.IsSelected)
                     {
 
                         project.projectCategory = "Measurement and KPI";
+
+                        categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.mAKN.IsChecked ?? true;
 
                     }
                     else if (oNA.IsSelected)
@@ -288,17 +296,23 @@ namespace PPMT
 
                         project.projectCategory = "ONA";
 
+                        categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.oNAN.IsChecked ?? true;
+
                     }
                     else if (cC.IsSelected)
                     {
 
                         project.projectCategory = "Consolidation/Cost";
 
+                        categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.cCN.IsChecked ?? true;
+
                     }
                     else if (other.IsSelected)
                     {
 
                         project.projectCategory = "Other";
+
+                        categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.otherN.IsChecked ?? true;
 
                     }
 
@@ -331,6 +345,8 @@ namespace PPMT
                     project.implementation = val9.Value;
 
                     PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(project);
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.categoriesToggle(categoryToggled, project.projectCategory);
 
                     PPMT.BubbleGraphUserControl.BubbleGraph.JSONList[index] = project;
 
@@ -380,9 +396,9 @@ namespace PPMT
                 }
             }
 
-            PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
-
             PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.RemoveAt(index);
+
+            PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
 
             PPMT.MainWindow.mainAccess.createSlideProj();
 

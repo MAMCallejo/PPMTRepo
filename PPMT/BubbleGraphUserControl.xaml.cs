@@ -40,6 +40,8 @@ namespace PPMT
 
         private Dictionary<Tuple<double, double>, string> BubbleLabels;
 
+        private Dictionary<string, List<Project>> hiddenBubbles;
+
         public Dictionary<Tuple<double, double>, ArrayList> BubbleList;
 
         public List<Project> JSONList;
@@ -56,7 +58,19 @@ namespace PPMT
 
             BubbleList = new Dictionary<Tuple<double, double>, ArrayList>();
 
-            //JSONList = new Dictionary<int, Project>();
+            hiddenBubbles = new Dictionary<string, List<Project>>();
+
+            hiddenBubbles.Add("Transformative Growth", null);
+
+            hiddenBubbles.Add("Quality of Talent", null);
+
+            hiddenBubbles.Add("Measurement and KPI", null);
+
+            hiddenBubbles.Add("ONA", null);
+
+            hiddenBubbles.Add("Consolidation/Cost", null);
+
+            hiddenBubbles.Add("Other", null);
 
             JSONList = new List<Project>();
 
@@ -274,6 +288,36 @@ namespace PPMT
 
             BubbleLabels.Remove(t);
 
+            if (!BubbleList.ContainsKey(t))
+            {
+
+                int indexToDelete = -1;
+
+                for (int i = 0; i < hiddenBubbles[project.projectCategory].Count; i++)
+                {
+
+                    Project hiddenProject = hiddenBubbles[project.projectCategory][i];
+
+                    if (hiddenProject.pName.Equals(project.pName))
+                    {
+
+                        indexToDelete = i;
+
+                    }
+
+                }
+
+                if (indexToDelete != -1)
+                {
+
+                    hiddenBubbles[project.projectCategory].RemoveAt(indexToDelete);
+
+                }
+
+                return;
+
+            }
+
             if (BubbleList[t].Count == 1)
             {
 
@@ -283,7 +327,7 @@ namespace PPMT
             else
             {
 
-                string newLabel = "";
+                string newLabel = "Project: ";
 
                 int indexToRemove = 0;
 
@@ -300,16 +344,51 @@ namespace PPMT
                     } else
                     {
 
-                        if (newLabel.Equals(""))
+                        if (newLabel.Equals("Project: "))
                         {
 
-                            newLabel = bubble.pName;
+                            for (int j = 0; j < JSONList.Count; j++)
+                            {
+
+                                if (JSONList[j].pName.Equals(bubble.pName))
+                                {
+
+                                    newLabel = newLabel + (j+1);
+
+                                }
+
+                            }
 
                         }
                         else
                         {
 
-                            newLabel = newLabel + Environment.NewLine + bubble.pName;
+                            string labelToAdd = "0";
+
+                            for (int j = 0; j < JSONList.Count; j++)
+                            {
+
+                                if (JSONList[j].pName.Equals(bubble.pName))
+                                {
+
+                                    labelToAdd = (j+1).ToString();
+
+                                }
+
+                            }
+
+                            if (((newLabel.ToCharArray().Count(c => c == ',')) + 1) == 3 || (newLabel.ToCharArray().Count(c => c == ',')) == 6)
+                            {
+
+                                newLabel = newLabel + ", " + Environment.NewLine + "\t" + labelToAdd;
+
+                            }
+                            else
+                            {
+
+                                newLabel = newLabel + ", " + labelToAdd;
+
+                            }
 
                         }
 
@@ -370,11 +449,32 @@ namespace PPMT
                     if (BubbleLabels.ContainsKey(newTuple))
                     {
 
-                        string newLabel = newProject.pName;
+                        string newLabel = "0";
+
+                        for (int i = 0; i < JSONList.Count; i++)
+                        {
+
+                            if (JSONList[i].pName.Equals(newProject.pName)) {
+
+                                newLabel = (i+1).ToString();
+
+                            }
+
+                        }
 
                         string oldLabel = BubbleLabels[newTuple];
 
-                        BubbleLabels[newTuple] = oldLabel + Environment.NewLine + newLabel;
+                        if ((BubbleList[newTuple].Count + 1) == 4 || (BubbleList[newTuple].Count + 1) == 7)
+                        {
+
+                            BubbleLabels[newTuple] = oldLabel + ", " + Environment.NewLine + "\t" + newLabel;
+
+                        } else
+                        {
+
+                            BubbleLabels[newTuple] = oldLabel + ", " + newLabel;
+
+                        }
 
                         BubbleList[newTuple].Add(newProject);
 
@@ -382,7 +482,18 @@ namespace PPMT
                     else
                     {
 
-                        string newLabel = newProject.pName;
+                        string newLabel = "Project: ";
+
+                        for (int i = 0; i < JSONList.Count; i++)
+                        {
+
+                            if (JSONList[i].pName.Equals(newProject.pName)) {
+
+                                newLabel = newLabel + (i+1);
+
+                            }
+
+                        }
 
                         BubbleLabels.Add(newTuple, newLabel);
 
@@ -398,6 +509,153 @@ namespace PPMT
 
                 }
             }
+        }
+
+        private string stringFormatter (string stringToFormat)
+        {
+
+            string formattedString = "";
+
+            if (stringToFormat.Length <= 20)
+            {
+
+                formattedString = stringToFormat;
+
+                return formattedString;
+
+            }
+            else if (stringToFormat.Length <= 40)
+            {
+
+                for (int i = 20; i < stringToFormat.Length; i++)
+                {
+
+                    if (stringToFormat[i] == ' ')
+                    {
+
+                        if (i == stringToFormat.Length-1)
+                        {
+
+                            formattedString = stringToFormat;
+
+                        } else
+                        {
+
+                            formattedString = stringToFormat.Substring(0, i) + Environment.NewLine + stringToFormat.Substring(i+1);
+
+                        }
+
+                        return formattedString;
+
+                    }
+
+                }
+
+
+            }
+            else if (stringToFormat.Length <= 60)
+            {
+
+                int newLineIndex = -1;
+
+                for (int i = 20; i < stringToFormat.Length; i++)
+                {
+
+                    if (stringToFormat[i] == ' ')
+                    {
+
+                        if (newLineIndex == -1)
+                        {
+
+                            newLineIndex = i;
+
+                            i = 39;
+
+                        } else 
+                        {
+
+                            if (i == stringToFormat.Length - 1)
+                            {
+
+                                formattedString = stringToFormat.Substring(0, newLineIndex) + Environment.NewLine + stringToFormat.Substring(newLineIndex + 1);
+
+                            }
+                            else
+                            {
+
+                                formattedString = stringToFormat.Substring(0, newLineIndex) + Environment.NewLine + stringToFormat.Substring(newLineIndex + 1, i - newLineIndex - 1) + Environment.NewLine + stringToFormat.Substring(i + 1);
+
+                            }
+
+                            Console.WriteLine(formattedString);
+
+                            return formattedString;
+
+                        }
+
+                    }
+
+                }
+
+            }
+            else
+            {
+
+                List<int> newLineIndexes = new List<int>();
+
+                newLineIndexes.Add(-1);
+
+                newLineIndexes.Add(-1);
+
+                for (int i = 20; i < stringToFormat.Length; i++)
+                {
+
+                    if (stringToFormat[i] == ' ')
+                    {
+
+                        if (newLineIndexes[0] == -1)
+                        {
+
+                            newLineIndexes[0] = i;
+
+                            i = 39;
+
+                        }
+                        else if (newLineIndexes[1] == -1)
+                        {
+
+                            newLineIndexes[1] = i;
+
+                            i = 59;
+
+                        } else
+                        {
+
+                            if (i == stringToFormat.Length - 1)
+                            {
+
+                                formattedString = stringToFormat.Substring(0, newLineIndexes[0]) + Environment.NewLine + stringToFormat.Substring(newLineIndexes[0] + 1, newLineIndexes[1] - newLineIndexes[0] - 1) + Environment.NewLine + stringToFormat.Substring(newLineIndexes[1] + 1);
+
+                            }
+                            else
+                            {
+
+                                formattedString = stringToFormat.Substring(0, newLineIndexes[0]) + Environment.NewLine + stringToFormat.Substring(newLineIndexes[0] + 1, newLineIndexes[1] - newLineIndexes[0] - 1) + Environment.NewLine + stringToFormat.Substring(newLineIndexes[1] + 1, i - newLineIndexes[1] - 1) + Environment.NewLine + stringToFormat.Substring(i + 1);
+
+                            }
+
+                            return formattedString;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            return formattedString;
+
         }
 
 
@@ -416,9 +674,9 @@ namespace PPMT
                     foreach (var project in fileList)
                     {
 
-                        AddNewProject(project);
-
                         JSONList.Add(project);
+
+                        AddNewProject(project);
 
                     }
 
@@ -457,7 +715,7 @@ namespace PPMT
 
         private void qOTChecked(object sender, RoutedEventArgs e)
         {
-            categoriesToggle(qOTN.IsChecked ?? true, "Quality of Talen");
+            categoriesToggle(qOTN.IsChecked ?? true, "Quality of Talent");
         }
 
         private void mAKChecked(object sender, RoutedEventArgs e)
@@ -480,27 +738,24 @@ namespace PPMT
             categoriesToggle(otherN.IsChecked ?? true, "Other");
         }
 
-        private void categoriesToggle(bool categoryToggled, string categoryName)
+        public void categoriesToggle(bool categoryToggled, string categoryName)
         {
 
             // Show series:
             if (categoryToggled)
             {
 
-                if (SeriesCollection != null)
+                if (hiddenBubbles[categoryName] != null)
                 {
 
-                    foreach (ScatterSeries series in SeriesCollection)
+                    foreach (Project project in hiddenBubbles[categoryName])
                     {
 
-                        if (series.Title.Equals(categoryName))
-                        {
-
-                            series.Visibility = Visibility.Visible;
-
-                        }
+                        AddNewProject(project);
 
                     }
+
+                    hiddenBubbles[categoryName] = null;
 
                 }
 
@@ -516,7 +771,53 @@ namespace PPMT
                         if (series.Title.Equals(categoryName))
                         {
 
-                            series.Visibility = Visibility.Collapsed;
+                            List<Tuple<double, double>> pointsVisited = new List<Tuple<double, double>>();
+
+                            foreach(ScatterPoint bubbleToHide in series.Values)
+                            {
+
+                                var tToHide = new Tuple<double, double>(bubbleToHide.X, bubbleToHide.Y);
+
+                                if (!pointsVisited.Contains(tToHide))
+                                {
+
+                                    var bubbleProjects = BubbleList[tToHide];
+
+                                    List<Project> projectsToHide = new List<Project>();
+
+                                    foreach (Project projectToHide in bubbleProjects)
+                                    {
+
+                                        if (projectToHide.projectCategory.Equals(categoryName))
+                                        {
+                                            projectsToHide.Add(projectToHide);
+
+                                        }
+
+                                    }
+
+                                    foreach (Project projectToHide in projectsToHide)
+                                    {
+
+                                        deleteProject(bubbleToHide, tToHide, projectToHide);
+
+                                        if (hiddenBubbles[categoryName] == null)
+                                        {
+
+                                            hiddenBubbles[categoryName] = new List<Project>();
+
+                                        }
+
+                                        hiddenBubbles[categoryName].Add(projectToHide);
+
+                                    }
+
+                                    pointsVisited.Add(tToHide);
+
+                                }
+
+                            }
+                            
 
                         }
 

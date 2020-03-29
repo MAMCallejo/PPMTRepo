@@ -76,6 +76,65 @@ namespace PPMT
 
             PPMT.BubbleGraphUserControl.BubbleGraph.AddNewProject(newProj);
 
+            var categoryToggled = true;
+
+            switch (newProj.projectCategory)
+            {
+
+                case "Transformative Growth":
+
+                    categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.tGN.IsChecked ?? true;
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.categoriesToggle(categoryToggled, newProj.projectCategory);
+
+                    break;
+
+                case "Quality of Talent":
+
+                    categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.qOTN.IsChecked ?? true;
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.categoriesToggle(categoryToggled, newProj.projectCategory);
+
+                    break;
+
+                case "Measurement and KPI":
+
+                    categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.mAKN.IsChecked ?? true;
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.categoriesToggle(categoryToggled, newProj.projectCategory);
+
+                    break;
+
+                case "ONA":
+
+                    categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.oNAN.IsChecked ?? true;
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.categoriesToggle(categoryToggled, newProj.projectCategory);
+
+                    break;
+
+                case "Consolidation/Cost":
+
+                    categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.cCN.IsChecked ?? true;
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.categoriesToggle(categoryToggled, newProj.projectCategory);
+
+                    break;
+
+                case "Other":
+
+                    categoryToggled = PPMT.BubbleGraphUserControl.BubbleGraph.otherN.IsChecked ?? true;
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.categoriesToggle(categoryToggled, newProj.projectCategory);
+
+                    break;
+
+                default:
+
+                    break;
+
+            }
+
             var projMenu = new List<SubItem>();
 
             projMenu.Add(new SubItem(newProj));
