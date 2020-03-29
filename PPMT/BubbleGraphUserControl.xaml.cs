@@ -33,10 +33,10 @@ namespace PPMT
         private double vendorsWeight = 0.2;
         private double sponsorshipWeight = 0.3;
         private double implementationWeight = 0.25;
-        private double valueWeight = 0.3;
-        private double transformativeGWeight = 0.3;
-        private double hrPriorityWeight = 0.3;
-        private double riskWeight = 0.1;
+        private double valueWeight = 0.4;
+        private double strategicAWeight = 0.4;
+        //private double hrPriorityWeight = 0.3;
+        private double riskWeight = 0.2;
 
         private Dictionary<Tuple<double, double>, string> BubbleLabels;
 
@@ -276,10 +276,17 @@ namespace PPMT
 
         // Calculate Impact:
 
-        private Double calculateYCoord(Double value, Double transformativeG, Double hrPriority, Double risk)
+        /* private Double calculateYCoord(Double value, Double transformativeG, Double hrPriority, Double risk)
+         {
+
+             return ((value * valueWeight) + (transformativeG * transformativeGWeight) + (hrPriority * hrPriorityWeight) + (risk * riskWeight));
+
+         }*/
+
+        private Double calculateYCoord(Double value, Double strategicA, Double risk)
         {
 
-            return ((value * valueWeight) + (transformativeG * transformativeGWeight) + (hrPriority * hrPriorityWeight) + (risk * riskWeight));
+            return ((value * valueWeight) + (strategicA * strategicAWeight)  + (risk * riskWeight));
 
         }
 
@@ -440,7 +447,9 @@ namespace PPMT
 
                     var XCoord = calculateXCoord(newProject.resource, newProject.data, newProject.vendors, newProject.sponsorship, newProject.implementation);
 
-                    var YCoord = calculateYCoord(newProject.value, newProject.transformativeG, newProject.hrpriority, newProject.risk);
+                    //var YCoord = calculateYCoord(newProject.value, newProject.transformativeG, newProject.hrpriority, newProject.risk);
+
+                    var YCoord = calculateYCoord(newProject.value, newProject.strategicA, newProject.risk);
 
                     var newBubble = new ScatterPoint(XCoord, YCoord, newProject.value);
 

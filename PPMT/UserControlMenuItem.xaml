@@ -22,8 +22,8 @@
                             <TextBlock Text="{Binding Path=pDeadline}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=pSavings}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=value}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                            <TextBlock Text="{Binding Path=transformativeG}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
-                            <TextBlock Text="{Binding Path=hrpriority}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                            <TextBlock Text="{Binding Path=strategicA}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
+                           <!-- <TextBlock Text="{Binding Path=hrpriority}" HorizontalAlignment="Left" Padding="20,3,0,3"/> -->
                             <TextBlock Text="{Binding Path=risk}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=resource}" HorizontalAlignment="Left" Padding="20,3,0,3"/>
                             <TextBlock Text="{Binding Path=data}" HorizontalAlignment="Left" Padding="20,3,0,3"/>

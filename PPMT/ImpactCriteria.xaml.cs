@@ -26,8 +26,8 @@ namespace PPMT
         }
 
         double value;
-        double transformativeGrowth;
-        double hrpriority;
+        double strategicAlignment;
+        //double hrpriority;
         double risk;
 
         ComplexityCriteria pg = new ComplexityCriteria();
@@ -35,13 +35,13 @@ namespace PPMT
         private void nextButtonClick(object sender, RoutedEventArgs e)
         {
             value = (double)one.Content;
-            transformativeGrowth = (double)two.Content;
-            hrpriority = (double)three.Content;
+            strategicAlignment = (double)two.Content;
+            //hrpriority = (double)three.Content;
             risk = (double)four.Content;
 
             App.Current.Properties["value"] = value;
-            App.Current.Properties["transformativeG"] = transformativeGrowth;
-            App.Current.Properties["hrpriority"] = hrpriority;
+            App.Current.Properties["strategicA"] = strategicAlignment;
+            //App.Current.Properties["hrpriority"] = hrpriority;
             App.Current.Properties["risk"] = risk;
             
             

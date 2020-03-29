@@ -20,9 +20,9 @@ namespace PPMT
 
             value = "Value: " + p.value;
 
-            transformativeG = "Transformative Growth: " + p.transformativeG;
+            strategicA = "Strategic Alignment: " + p.strategicA;
 
-            hrpriority = "HR Priority: " + p.hrpriority;
+           // hrpriority = "HR Priority: " + p.hrpriority;
 
             risk = "Risk: " + p.risk;
 
@@ -47,8 +47,8 @@ namespace PPMT
         public string pDeadline { get; set; }
         public string pSavings { get; set; }
         public string value { get; set; }
-        public string transformativeG { get; set; }
-        public string hrpriority { get; set; }
+        public string strategicA { get; set; }
+        //public string hrpriority { get; set; }
         public string risk { get; set; }
         public string resource { get; set; }
         public string data { get; set; }

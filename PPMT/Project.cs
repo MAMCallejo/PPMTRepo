@@ -14,8 +14,8 @@ namespace PPMT
         public string pDeadline { get; set; }
         public ulong pSavings { get; set; }
         public double value { get; set; }
-        public double transformativeG { get; set; }
-        public double hrpriority { get; set; }
+        public double strategicA { get; set; }
+       // public double hrpriority { get; set; }
         public double risk { get; set; }
         public double resource { get; set; }
         public double data { get; set; }
