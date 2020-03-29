@@ -873,5 +873,9 @@ namespace PPMT
 
         }
 
+        private void infoClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
