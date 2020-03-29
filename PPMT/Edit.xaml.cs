@@ -384,8 +384,8 @@ namespace PPMT
 
         private void deleteButtonClicked(object sender, RoutedEventArgs e)
         {
-
-            MessageBoxResult result = MessageBox.Show("Are you sure you wish to delete this project?", "Delete", MessageBoxButton.YesNo);
+            MessageBoxImage icon = MessageBoxImage.Question;
+            MessageBoxResult result = MessageBox.Show("Are you sure you wish to delete this project?", "Delete", MessageBoxButton.YesNo, icon);
 
             switch (result)
             {

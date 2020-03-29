@@ -85,7 +85,7 @@
         </StackPanel>
 
         <TextBlock Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" FontFamily="Gotham Book" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="White" TextWrapping="Wrap">
-            Project heightens Riks* to the enterprise <LineBreak/>
+            Project heightens Risk* to the enterprise <LineBreak/>
             *Brand reputation, privacy, ethics &amp; market perception
         </TextBlock> 
 
