@@ -385,31 +385,39 @@ namespace PPMT
         private void deleteButtonClicked(object sender, RoutedEventArgs e)
         {
 
-            int index = 0;
+            MessageBoxResult result = MessageBox.Show("Are you sure you wish to delete this project?", "Delete", MessageBoxButton.YesNo);
 
-            for (int i = 0; i < PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.Count; i++)
+            switch (result)
             {
-                if (PPMT.BubbleGraphUserControl.BubbleGraph.JSONList[i].pName == project.pName)
-                {
-                    index = i;
+                case MessageBoxResult.Yes:
+                    int index = 0;
+
+                    for (int i = 0; i < PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.Count; i++)
+                    {
+                        if (PPMT.BubbleGraphUserControl.BubbleGraph.JSONList[i].pName == project.pName)
+                        {
+                            index = i;
+                            break;
+                        }
+                    }
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.RemoveAt(index);
+
+                    PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
+
+                    PPMT.MainWindow.mainAccess.createSlideProj();
+
+                    string docPath = Directory.GetCurrentDirectory();
+
+                    string convertedJson = JsonConvert.SerializeObject(PPMT.BubbleGraphUserControl.BubbleGraph.JSONList, Formatting.Indented);
+
+                    File.WriteAllText((System.IO.Path.Combine(docPath, "projects.json")), convertedJson);
+
+                    edit.Close();
                     break;
-                }
+                case MessageBoxResult.No:
+                    break;
             }
-
-            PPMT.BubbleGraphUserControl.BubbleGraph.JSONList.RemoveAt(index);
-
-            PPMT.BubbleGraphUserControl.BubbleGraph.deleteProject(oldBubble, tup, project);
-
-            PPMT.MainWindow.mainAccess.createSlideProj();
-
-            string docPath = Directory.GetCurrentDirectory();
-
-            string convertedJson = JsonConvert.SerializeObject(PPMT.BubbleGraphUserControl.BubbleGraph.JSONList, Formatting.Indented);
-
-            File.WriteAllText((System.IO.Path.Combine(docPath, "projects.json")), convertedJson);
-
-            edit.Close();
-
         }
 
         private void MaskNumericInput(object sender, TextCompositionEventArgs e)
