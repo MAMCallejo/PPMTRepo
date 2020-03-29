@@ -89,7 +89,7 @@
 
         <!--Buttons for display toggles and info button-->
 
-        <Button Grid.Column="4" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" VerticalAlignment="Center">
+        <Button Grid.Column="4" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" VerticalAlignment="Center" Click="infoClicked">
             <materialDesign:PackIcon Kind="InformationCircleOutline">
                 <materialDesign:PackIcon.LayoutTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>

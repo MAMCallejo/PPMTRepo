@@ -93,6 +93,9 @@
     <Compile Include="BubbleGraphUserControl.xaml.cs">
       <DependentUpon>BubbleGraphUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="infoWindow.xaml.cs">
+      <DependentUpon>infoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ItemMenu.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="NewProj.xaml.cs">
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImpactCriteria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="infoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
