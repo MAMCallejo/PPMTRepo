@@ -80,7 +80,7 @@ namespace PPMT
                 new ScatterSeries
                 {
 
-                    Title = "Transformative Growth", // Light Blue
+                    Title = "Transformative Growth", // Light Blue Gradient
 
                     Values = new ChartValues<ScatterPoint>{},
 
@@ -92,7 +92,7 @@ namespace PPMT
 
                     LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
 
-                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#72bcd4")),
+                    Fill = new LinearGradientBrush((Color)ColorConverter.ConvertFromString("#72bcd4"), (Color)ColorConverter.ConvertFromString("#42B4E6"), 90.0),
 
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
@@ -109,7 +109,7 @@ namespace PPMT
                 new ScatterSeries
                 {
 
-                    Title = "Quality of Talent", // Light Yellow
+                    Title = "Quality of Talent", // Lavander Gradient
 
                     Values = new ChartValues<ScatterPoint>{},
 
@@ -121,7 +121,7 @@ namespace PPMT
 
                     LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
 
-                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff67d")),
+                    Fill = new LinearGradientBrush((Color)ColorConverter.ConvertFromString("#F4BBFF"), (Color)ColorConverter.ConvertFromString("#BF94E4"), 90.0),
 
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
@@ -138,7 +138,7 @@ namespace PPMT
                 new ScatterSeries
                 {
 
-                    Title = "Measurement and KPI", // Light Red
+                    Title = "Measurement and KPI", // Light Red Gradient
 
                     Values = new ChartValues<ScatterPoint>{},
 
@@ -150,7 +150,7 @@ namespace PPMT
 
                     LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
 
-                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f56566")),
+                    Fill = new LinearGradientBrush((Color)ColorConverter.ConvertFromString("#f56566"), (Color)ColorConverter.ConvertFromString("#FF2A2A"), 90),
 
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
@@ -167,7 +167,7 @@ namespace PPMT
                 new ScatterSeries
                 {
 
-                    Title = "ONA", // Dark Blue
+                    Title = "ONA", // Dark Blue Gradient
 
                     Values = new ChartValues<ScatterPoint>{},
 
@@ -179,7 +179,7 @@ namespace PPMT
 
                     LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
 
-                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00008b")),
+                    Fill = new LinearGradientBrush((Color)ColorConverter.ConvertFromString("#0021F3"), (Color)ColorConverter.ConvertFromString("#0013DE"), 90.0),
 
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
@@ -196,7 +196,7 @@ namespace PPMT
                 new ScatterSeries
                 {
 
-                    Title = "Consolidation/Cost", // Light Orange
+                    Title = "Consolidation/Cost", // Light Orange Gradient
 
                     Values = new ChartValues<ScatterPoint>{},
 
@@ -208,7 +208,7 @@ namespace PPMT
 
                     LabelPoint = point => BubbleLabels[new Tuple<double, double>(point.X, point.Y)],
 
-                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f9953f")),
+                    Fill = new LinearGradientBrush((Color)ColorConverter.ConvertFromString("#f9953f"), (Color)ColorConverter.ConvertFromString("#FA7501"), 90.0),
 
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2b3559")),
 
