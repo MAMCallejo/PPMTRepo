@@ -50,6 +50,9 @@
                    Background="#2c7b7f" Click="newProject" Content="New Project">
                 </Button>
 
+                <Border CornerRadius="10" Grid.RowSpan="9" Grid.ColumnSpan="4">
+                </Border>
+
             </StackPanel>
 
         </ScrollViewer>

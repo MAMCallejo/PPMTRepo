@@ -97,39 +97,39 @@
             </materialDesign:PackIcon>
         </Button>
         
-        <Label Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
-            <AccessText TextWrapping="Wrap">Show Labels</AccessText> </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Click="labelChecked" Name="labelN"></ToggleButton>
+        <TextBlock Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" Foreground="White" FontSize="15" TextAlignment="Center" HorizontalAlignment="Center">
+            <AccessText TextWrapping="Wrap">Show Labels</AccessText> </TextBlock>
+        <ToggleButton Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" Click="labelChecked" Name="labelN"></ToggleButton>
 
-        <Label Grid.Column="4" Grid.Row="3" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+        <TextBlock Grid.Column="4" Grid.Row="3" VerticalAlignment="Top" Foreground="White" FontSize="15" TextAlignment="Center" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Transformative Growth</AccessText>
-        </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Click="tGChecked" Margin="0,20,0,0" IsChecked="True" Name="tGN"></ToggleButton>
+        </TextBlock>
+        <ToggleButton Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" Margin="0,30,0,0" HorizontalAlignment="Center" Click="tGChecked" IsChecked="True" Name="tGN"></ToggleButton>
 
-        <Label Grid.Column="4" Grid.Row="4" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+        <TextBlock Grid.Column="4" Grid.Row="4" VerticalAlignment="Top" Foreground="White" FontSize="15" TextAlignment="Center" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Quality of Talent</AccessText>
-        </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Click="qOTChecked" Margin="0,20,0,0" IsChecked="True" Name="qOTN"></ToggleButton>
+        </TextBlock>
+        <ToggleButton Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" Margin="0,30,0,0" HorizontalAlignment="Center" Click="qOTChecked" IsChecked="True" Name="qOTN"></ToggleButton>
 
-        <Label Grid.Column="4" Grid.Row="5" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+        <TextBlock Grid.Column="4" Grid.Row="5" VerticalAlignment="Top" Foreground="White" FontSize="15" TextAlignment="Center" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Measurement and KPI</AccessText>
-        </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Click="mAKChecked" Margin="0,20,0,0" IsChecked="True" Name="mAKN"></ToggleButton>
+        </TextBlock>
+        <ToggleButton Grid.Column="4" Grid.Row="5" VerticalAlignment="Center" Margin="0,30,0,0" HorizontalAlignment="Center" Click="mAKChecked" IsChecked="True" Name="mAKN"></ToggleButton>
 
-        <Label Grid.Column="4" Grid.Row="6" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+        <TextBlock Grid.Column="4" Grid.Row="6" VerticalAlignment="Top" Foreground="White" FontSize="15" TextAlignment="Center" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">ONA</AccessText>
-        </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Click="oNAChecked" IsChecked="True" Name="oNAN"></ToggleButton>
+        </TextBlock>
+        <ToggleButton Grid.Column="4" Grid.Row="6" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" Click="oNAChecked" IsChecked="True" Name="oNAN"></ToggleButton>
 
-        <Label Grid.Column="4" Grid.Row="7" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+        <TextBlock Grid.Column="4" Grid.Row="7" VerticalAlignment="Top" Foreground="White" FontSize="15" TextAlignment="Center" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Consolidation/Cost</AccessText>
-        </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Click="cCChecked" Margin="0,20,0,0" IsChecked="True" Name="cCN"></ToggleButton>
+        </TextBlock>
+        <ToggleButton Grid.Column="4" Grid.Row="7" VerticalAlignment="Center" Margin="0,30,0,0" HorizontalAlignment="Center" Click="cCChecked" IsChecked="True" Name="cCN"></ToggleButton>
 
-        <Label Grid.Column="4" Grid.Row="8" VerticalAlignment="Top" Foreground="White" FontSize="15" HorizontalAlignment="Center">
+        <TextBlock Grid.Column="4" Grid.Row="8" VerticalAlignment="Top" Foreground="White" FontSize="15" TextAlignment="Center" HorizontalAlignment="Center">
             <AccessText TextWrapping="Wrap">Other</AccessText>
-        </Label>
-        <ToggleButton Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Click="otherChecked" IsChecked="True" Name="otherN"></ToggleButton>
+        </TextBlock>
+        <ToggleButton Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" Click="otherChecked" IsChecked="True" Name="otherN"></ToggleButton>
 
         <TextBlock 
             Grid.Row="8"
@@ -137,9 +137,9 @@
             Grid.ColumnSpan="2"
             Foreground="White"
             Panel.ZIndex="5"
-            VerticalAlignment="Center"
+            VerticalAlignment="Bottom"
             HorizontalAlignment="Left"
-            Margin="20,40,0,0">
+            Margin="20,0,0,10">
             <Run Text="Powered by" FontFamily="Gotham Book"/>
             <Run Text="Poppin" Style="{StaticResource Octarine Bold}"/>
         </TextBlock>
