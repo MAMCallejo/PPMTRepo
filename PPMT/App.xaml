@@ -6,14 +6,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                
+
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <!--
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.LightBlue.xaml" /> -->
             </ResourceDictionary.MergedDictionaries>
-            
+
             <!-- primary -->
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#FFFFFF"/>
             <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#E8E4E4"/>
@@ -25,6 +25,29 @@
             <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#5C5B5E"/>
             <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#E8E4E4"/>
 
+            <Style x:Key="Octarine Bold">
+                <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Octarine Bold">
+                </Setter>
+            </Style>
+
+            <Style x:Key="Octarine Bold Oblique">
+                <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Octarine Bold Oblique">
+                </Setter>
+            </Style>
+
+            <Style x:Key="Octarine Light">
+                <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Octarine Light">
+                </Setter>
+            </Style>
+
+            <Style x:Key="Octarine Light Oblique">
+                <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Octarine Light Oblique">
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

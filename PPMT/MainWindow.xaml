@@ -38,12 +38,12 @@
             </materialDesign:PackIcon>
         </Button>
 
-        <ScrollViewer Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Disabled"
+        <ScrollViewer Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Auto"
                       Background="White" x:Name="scrollOut" Visibility="Collapsed">
 
             <StackPanel x:Name="Menu" Margin="10">
-                
+
                 <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" FontFamily="Gotham Book" Panel.ZIndex="2"
                    Foreground="White" FontSize="20"
                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
@@ -51,12 +51,9 @@
                 </Button>
 
             </StackPanel>
-            
+
         </ScrollViewer>
 
-
-        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Foreground="White" FontFamily="Gotham Book" Panel.ZIndex="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,50,0">Powered by Poppin</TextBlock>
-        
     </Grid>
     
 </Window>

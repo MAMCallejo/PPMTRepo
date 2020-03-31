@@ -130,5 +130,19 @@
             <AccessText TextWrapping="Wrap">Other</AccessText>
         </Label>
         <ToggleButton Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Click="otherChecked" IsChecked="True" Name="otherN"></ToggleButton>
+
+        <TextBlock 
+            Grid.Row="8"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Foreground="White"
+            Panel.ZIndex="5"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="20,40,0,0">
+            <Run Text="Powered by" FontFamily="Gotham Book"/>
+            <Run Text="Poppin" Style="{StaticResource Octarine Bold}"/>
+        </TextBlock>
+
     </Grid>
 </UserControl>

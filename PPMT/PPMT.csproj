@@ -188,6 +188,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\Gotham Book Regular.ttf" />
+    <Resource Include="Fonts\Octarine Bold.otf" />
+    <Resource Include="Fonts\Octarine Bold Oblique.otf" />
+    <Resource Include="Fonts\Octarine Light.otf" />
+    <Resource Include="Fonts\Octarine Light Oblique.otf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
