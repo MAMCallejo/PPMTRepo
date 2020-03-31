@@ -15,6 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="90"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -52,8 +53,10 @@
             </StackPanel>
             
         </ScrollViewer>
-        
 
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Foreground="White" FontFamily="Gotham Book" Panel.ZIndex="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,50,0">Powered by Poppin</TextBlock>
+        
     </Grid>
     
 </Window>
