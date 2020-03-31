@@ -38,38 +38,44 @@
         </TextBlock>
 
 
-        <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/LightBlueB.png" Margin="0,5,0,5"/>
+        <!--<Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/LightBlueB.png" Margin="0,5,0,5"/> -->
+        <Rectangle Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#72bcd4" Margin="20,10,20,10"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center" FontFamily="Gotham Book">
-            These bubbles represent projects part of the Transformative Growth category
+            This color represents projects part of the Transformative Growth category
         </TextBlock>
 
-        <Image Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/YellowB.png" Margin="0,5,0,5"/>
+        <!--<Image Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/YellowB.png" Margin="0,5,0,5"/> -->
+        <Rectangle Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#BF94E4" Margin="20,10,20,10"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center" FontFamily="Gotham Book">
-            These bubbles represent projects part of the Quality of Talent category
+            This color represent projects part of the Quality of Talent category
         </TextBlock>
 
-        <Image Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/RedB.png" Margin="0,5,0,5"/>
+        <!--<Image Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/RedB.png" Margin="0,5,0,5"/> -->
+        <Rectangle Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#f56566" Margin="20,10,20,10"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center" FontFamily="Gotham Book">
-            These bubbles represent projects part of the Measurement and KPI category
+            This color represent projects part of the Measurement and KPI category
         </TextBlock>
 
-        <Image Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/DarkBlueB.png" Margin="0,5,0,5"/>
+        <!--<Image Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/DarkBlueB.png" Margin="0,5,0,5"/> -->
+        <Rectangle Grid.Column="0" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#0021F3" Margin="20,10,20,10"/>
         <TextBlock Grid.Row="4" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center" FontFamily="Gotham Book">
-            These bubbles represent projects part of the ONA category
+            This color represent projects part of the ONA category
         </TextBlock>
 
-        <Image Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/OrangeB.png" Margin="0,5,0,5"/>
+        <!--<Image Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/OrangeB.png" Margin="0,5,0,5"/> -->
+        <Rectangle Grid.Column="0" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#f9953f" Margin="20,10,20,10"/>
         <TextBlock Grid.Row="5" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center" FontFamily="Gotham Book">
-            These bubbles represent projects part of the Consolidation/Cost category
+            This color represent projects part of the Consolidation/Cost category
         </TextBlock>
 
-        <Image Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/GreyB.png" Margin="0,5,0,5"/>
+        <!--<Image Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/GreyB.png" Margin="0,5,0,5"/> -->
+        <Rectangle Grid.Column="0" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#9d9d9d" Margin="20,10,20,10"/>
         <TextBlock Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center" FontFamily="Gotham Book">
-            These bubbles represent projects part of the Other category
+            This color represent projects part of the Other category
         </TextBlock>
 
         <TextBlock Grid.Row="7" Grid.Column="1" Foreground="White" FontSize="15" VerticalAlignment="Center" FontFamily="Gotham Book">
-            For more information on each category click on a bubble
+            For more information on each category click on a bubble in the graph
         </TextBlock>
 
     </Grid>
